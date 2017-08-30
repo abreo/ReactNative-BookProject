@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StackNavigator } from 'react-navigation'
+import { StackNavigator, DrawerNavigator } from 'react-navigation'
 import MainTabScreen from './tab'
 import TestPage from './pages/page1'
 
