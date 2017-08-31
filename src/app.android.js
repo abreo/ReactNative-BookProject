@@ -4,6 +4,6 @@
  * @flow
  */
 
-import App from './router'
+import App from './navigation'
 
 export default App
