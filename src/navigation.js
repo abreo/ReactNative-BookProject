@@ -22,7 +22,7 @@ class HomeScreen extends Component {
           this is home
         </Text>
         <View style={{ width: 50 }}>
-          <Button title="button" onPress={() => navigate('DrawerOpen')} />
+          <Button title="ON" onPress={() => navigate('DrawerOpen')} />
         </View>
       </View>
     )
@@ -126,50 +126,12 @@ const MainTabScreenT = TabNavigator(
 
 // DrawerNavigator
 
-const MainTabScreen = DrawerNavigator(
-  {
-    Home: { screen: MainTabScreenT }
-  },
-  {
-    drawerWidth: 240
-  }
-)
+import TestPage from './pages/TwoScreen'
 
-MainTabScreen.navigationOptions = (props) => {
-  const { navigationOptions: { headerTitle } } = props
-  // hasTitle = headerTitle ? {} : { header: null }
-  return {
-    // ...hasTitle,
-    headerTitle: headerTitle || '侧边栏默认title',
-    headerTitleStyle: {
-      fontWeight: 'normal'
-    },
-    headerLeft: (
-      <TouchableOpacity onPress={() => props.navigation.navigate('DrawerOpen')}>
-        <View>
-          {headerTitle ? <Text>侧边栏</Text> : null}
-        </View>
-      </TouchableOpacity>
-    ),
-    headerRight: (
-      <View>
-        {headerTitle ? <Text>扫码入口</Text> : null}
-      </View>
-    )
-  }
-}
-
-
-
-
-// StackNavigator
-
-import TestPage from './pages/page1'
-
-const AppRouter = StackNavigator(
+const AppRouter = DrawerNavigator(
   {
     Main: {
-      screen: MainTabScreen
+      screen: MainTabScreenT
     },
     Test: {
       screen: TestPage
