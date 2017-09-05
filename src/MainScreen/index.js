@@ -95,7 +95,9 @@ const MainTab = TabNavigator(
 
 
 // 预留
-MainTab.navigationOptions = {}
+MainTab.navigationOptions = {
+  
+}
 
 
 

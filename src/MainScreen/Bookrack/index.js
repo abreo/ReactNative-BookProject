@@ -13,7 +13,10 @@ const BookrackStackNavigator = StackNavigator(
   {
     navigationOptions: {
       headerTitleStyle: {
-        fontWeight: 'normal'
+        // 字体粗细
+        fontWeight: 'normal',
+        // 标题居中——安卓
+        alignSelf: 'center'
       }
     }
   }

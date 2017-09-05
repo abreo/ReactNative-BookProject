@@ -1,8 +1,8 @@
 import { DrawerNavigator } from 'react-navigation'
 import Dimensions from 'Dimensions'
 
-import MainTabNavigator from './pages/MainScreen'
-import TwoTest from './pages/TwoScreen'
+import MainTabNavigator from './MainScreen'
+import TwoTest from './TwoScreen'
 
 
 const { width } = Dimensions.get('window')

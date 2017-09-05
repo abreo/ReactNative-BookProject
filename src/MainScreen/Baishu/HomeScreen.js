@@ -3,29 +3,28 @@ import {
   StyleSheet,
   View,
   Text,
-  Button,
   TouchableOpacity
 } from 'react-native'
 
-// 组件引入
+// 公共组件
 import { HeaderUser, HeaderQR } from '../common'
+// 模块组件
+import { HomeList, HomeSearch } from '../common/baishu'
+
 
 class HomeScreen extends Component {
   static navigationOptions = (props) => {
-    // console.log(props)
     return {
-      headerLeft: <HeaderUser {...props}/>,
-      headerRight: <HeaderQR {...props}/>
+      headerLeft: <HeaderUser {...props} />,
+      headerRight: <HeaderQR {...props} />
     }
   }
   render() {
     const { navigate } = this.props.navigation
     return (
       <View style={styles.container}>
-        <Text>掰书</Text>
-        <TouchableOpacity onPress={() => navigate('DrawerOpen')}>
-          <Text>弹出侧边栏</Text>
-        </TouchableOpacity>
+        <HomeSearch />
+        <HomeList />
       </View>
     )
   }
@@ -34,8 +33,8 @@ class HomeScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    // justifyContent: 'center',
+    // alignItems: 'center'
   }
 })
 

@@ -25,5 +25,25 @@ const HeaderQR = ({ navigation: { navigate } }) => (
   </TouchableOpacity>
 )
 
+// class HeaderQR extends Component {
+//   render() {
+//     const { navigate } = this.props.navigation
+//     console.log('触发render')
+//     return (
+//       <TouchableOpacity onPress={() => 1 + 2}>
+//         <Image
+//           source={require('../icon/qr.png')}
+//           style={styles.icon}
+//         />
+//       </TouchableOpacity>
+//     )
+//   }
+// }
+
+// function wrapnavigate(navigate) {
+//   console.log(112)
+//   // navigate('DrawerOpen')
+// }
+
 
 export default HeaderQR
