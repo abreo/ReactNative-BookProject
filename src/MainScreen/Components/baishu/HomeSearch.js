@@ -24,7 +24,7 @@ class BaishuList extends Component {
               style={styles.searchInput} />
           </View>
           <View>
-            <Image source={require('../../icon/search.png')} style={styles.searchIcon} />
+            <Image source={require('../../images/icons/search.png')} style={styles.searchIcon} />
           </View>
         </View>
       </View>

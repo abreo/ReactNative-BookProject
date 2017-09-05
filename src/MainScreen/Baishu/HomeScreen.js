@@ -7,9 +7,9 @@ import {
 } from 'react-native'
 
 // 公共组件
-import { HeaderUser, HeaderQR } from '../common'
+import { HeaderUser, HeaderQR } from '../Components'
 // 模块组件
-import { HomeList, HomeSearch } from '../common/baishu'
+import { HomeList, HomeSearch } from '../Components/baishu'
 
 
 class HomeScreen extends Component {

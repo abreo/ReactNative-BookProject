@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 const HeaderQR = ({ navigation: { navigate } }) => (
   <TouchableOpacity onPress={() => navigate('DrawerOpen')}>
     <Image
-      source={require('../icon/qr.png')}
+      source={require('../images/icons/qr.png')}
       style={styles.icon}
     />
   </TouchableOpacity>

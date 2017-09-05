@@ -6,10 +6,10 @@ import {
 
 // 加载tab相应图标
 const tabIcons = {
-  baishu: [require('./icon/baishu.png'), require('./icon/baishu_select.png')],
-  chat: [require('./icon/chat.png'), require('./icon/chat_select.png')],
-  bookrack: [require('./icon/bookrack.png'), require('./icon/bookrack_select.png')],
-  putbook: [require('./icon/putbook.png'), require('./icon/putbook_select.png')]
+  baishu: [require('./images/icons/baishu.png'), require('./images/icons/baishu_select.png')],
+  chat: [require('./images/icons/chat.png'), require('./images/icons/chat_select.png')],
+  bookrack: [require('./images/icons/bookrack.png'), require('./images/icons/bookrack_select.png')],
+  putbook: [require('./images/icons/putbook.png'), require('./images/icons/putbook_select.png')]
 }
 
 const renderTabIcon = function (e, type) {
@@ -96,7 +96,7 @@ const MainTab = TabNavigator(
 
 // 预留
 MainTab.navigationOptions = {
-  
+
 }
 
 
