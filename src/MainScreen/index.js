@@ -20,8 +20,8 @@ const renderTabIcon = function (e, type) {
 
 const styles = StyleSheet.create({
   icon: {
-    width: 30,
-    height: 30
+    width: 24,
+    height: 24
   }
 })
 
@@ -86,8 +86,23 @@ const MainTab = TabNavigator(
       // 活动标签和图标颜色
       activeTintColor: '#336',
       style: {
-        height: 64,
-        backgroundColor: '#fff'
+        height: 52,
+        backgroundColor: '#fff',
+        borderTopWidth: 0.5,
+        borderTopColor: '#bbb',
+        // justifyContent: 'center'
+      },
+      iconStyle: {
+        marginTop: -2
+        // backgroundColor: '#00f'
+      },
+      labelStyle: {
+        marginTop: -2,
+        fontSize: 12
+        // backgroundColor: '#f00'
+      },
+      tabStyle: {
+
       }
     }
   }
