@@ -49,15 +49,15 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     height: 30,
-    width: 290,
+    width: 304,
     padding: 0,
     paddingRight: 6,
     paddingLeft: 6
   },
   searchIcon: {
-    width: 24,
-    height: 24,
-    marginRight: 4
+    width: 22,
+    height: 22,
+    marginRight: 8
   }
 })
 

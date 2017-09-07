@@ -89,7 +89,6 @@ class BaishuListItem extends PureComponent {
   }
   render() {
     return (
-
       <View style={styles.container} >
         <TouchableOpacity onPress={this.handlePress('bookcover')} activeOpacity={0.8}>
           <View style={styles.itemWrap}>

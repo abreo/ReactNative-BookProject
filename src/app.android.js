@@ -6,87 +6,83 @@ import {
   Image
 } from 'react-native'
 
-import { DrawerNavigator, DrawerItems } from 'react-navigation'
-import Dimensions from 'Dimensions'
+import { DrawerNavigator } from 'react-navigation'
 
+
+// 主屏
 import MainTabNavigator from './MainScreen'
+// 余额
+import BalanceStackNavigator from './DrawerScreen/Balance'
+// 测试
 import TwoTest from './TwoScreen'
 
 
+import CustomDrawerContentComponent from './Components/AppDrawer'
+import Dimensions from 'Dimensions'
 const { width: WIDTH, height: HEIGHT } = Dimensions.get('window')
 
-
-const CustomDrawerContentComponent = (props) => (
-  <View style={styles.container}>
-    <View style={styles.infoWrap}>
-      <Image source={require('./images/user_avatar.jpg')} style={styles.infoAvatar} />
-      <Text style={styles.infoUser}>徐玉佩</Text>
-      <Text style={styles.BookNum}>288</Text>
-      <View style={styles.infoBookSum}>
-        <Text style={{ fontSize: 10 }}>读过</Text>
-        <Text style={{ fontSize: 10 }}>本书</Text>
-      </View>
-    </View>
-    <DrawerItems {...props} />
-  </View>
-)
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  infoWrap: {
-    height: 400,
-    alignItems: 'center',
-    borderWidth: 2,
-    borderColor: '#f00'
-  },
-  infoAvatar: {
-    width: 60,
-    height: 60,
-    marginTop: 60,
-    borderRadius: 50
-  },
-  infoUser: {
-    marginTop: 4,
-    fontSize: 14,
-    color: '#555'
-  },
-  BookNum: {
-    marginTop: 30,
-    fontSize: 30
-  },
-  infoBookSum: {
-    width: 120,
-    height: 16,
-    marginTop: -22,
-    paddingLeft: 4,
-    paddingRight: 4,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    borderRadius: 50,
-    backgroundColor: 'rgba(0, 0, 0, 0.1)'
-  }
-})
 
 
 const App = DrawerNavigator(
   {
     MainDrawer: {
-      screen: MainTabNavigator
+      screen: MainTabNavigator,
+      navigationOptions: {
+        // 阻止侧栏显示主屏
+        drawerLabel: () => { }
+      }
     },
-    Tow: {
-      screen: TwoTest
+    BalanceDrawer: {
+      screen: BalanceStackNavigator,
+      navigationOptions: {
+        drawerLabel: '余额',
+        drawerIcon: () => <Image source={require('./images/icons/balance.png')} style={itemStyles.icon} />
+      }
+    },
+    ss: {
+      screen: TwoTest,
+      navigationOptions: {
+        drawerLabel: '积分',
+        drawerIcon: () => <Image source={require('./images/icons/integral.png')} style={itemStyles.icon} />
+      }
+    },
+    dd: {
+      screen: TwoTest,
+      navigationOptions: {
+        drawerLabel: '常见问题',
+        drawerIcon: () => <Image source={require('./images/icons/faq.png')} style={itemStyles.icon} />
+      }
+    },
+    ee: {
+      screen: TwoTest,
+      navigationOptions: {
+        drawerLabel: '设置',
+        drawerIcon: () => <Image source={require('./images/icons/setting.png')} style={itemStyles.icon} />
+      }
     }
   },
   {
+    // 初始路由测试用
+    initialRouteName: 'BalanceDrawer',
     // drawer宽度设置
     drawerWidth: 3 * WIDTH / 5,
     // 自定义样式组件
-    contentComponent: CustomDrawerContentComponent
+    contentComponent: CustomDrawerContentComponent,
+    contentOptions: {
+      labelStyle: {
+        fontWeight: 'normal',
+        marginLeft: -10,
+      }
+    }
   }
 )
+
+const itemStyles = StyleSheet.create({
+  icon: {
+    width: 18,
+    height: 18
+  }
+})
 
 
 
