@@ -7,11 +7,23 @@ import {
   TouchableOpacity
 } from 'react-native'
 
-const HeaderBack = ({ navigation: { navigate } }) => (
-  <TouchableOpacity activeOpacity={0.5} onPress={() => navigate('MainDrawer')}>
-    <Image source={require('../images/icons/back.png')} style={styles.icon} />
-  </TouchableOpacity>
-)
+const HeaderBack = ({ navigation: { navigate, goBack }, target }) => {
+  const handlePress = () => {
+    switch (target.type) {
+      case 'navigate':
+        navigate(target.value)
+        break
+      case 'goBack':
+        goBack()
+        break
+    }
+  }
+  return (
+    <TouchableOpacity activeOpacity={0.5} onPress={handlePress}>
+      <Image source={require('../images/icons/back.png')} style={styles.icon} />
+    </TouchableOpacity>
+  )
+}
 
 const styles = StyleSheet.create({
   icon: {

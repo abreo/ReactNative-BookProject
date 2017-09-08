@@ -9,6 +9,9 @@ import {
 import { DrawerNavigator } from 'react-navigation'
 
 
+// 主色#4b6
+
+
 // 主屏
 import MainTabNavigator from './MainScreen'
 // 余额

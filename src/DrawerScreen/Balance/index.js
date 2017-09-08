@@ -10,6 +10,8 @@ import { StackNavigator } from 'react-navigation'
 
 // screen引入
 import BalanceScreen from './BalanceScreen'
+import WithdrawScreen from './WithdrawScreen'
+import BankScreen from './BankScreen'
 
 // component引入
 import HeaderBack from '../Components/HeaderBack'
@@ -20,7 +22,23 @@ const BalanceStackNavigator = StackNavigator(
       screen: BalanceScreen,
       navigationOptions: (props) => ({
         headerTitle: '余额',
-        headerLeft: <HeaderBack {...props} />,
+        headerLeft: <HeaderBack {...props} target={{ type: 'navigate', value: "MainDrawer" }} />,
+        headerRight: () => { },
+      })
+    },
+    BalanceWithdrawStack: {
+      screen: WithdrawScreen,
+      navigationOptions: (props) => ({
+        headerTitle: '提现',
+        headerLeft: <HeaderBack {...props} target={{ type: 'goBack', value: null }} />,
+        headerRight: () => { },
+      })
+    },
+    BalanceBankStack: {
+      screen: BankScreen,
+      navigationOptions: (props) => ({
+        headerTitle: '银行卡',
+        headerLeft: <HeaderBack {...props} target={{ type: 'goBack', value: null }} />,
         headerRight: () => { },
       })
     }

@@ -11,7 +11,7 @@ import {
 import Dimensions from 'Dimensions'
 const { width: WIDTH } = Dimensions.get('window')
 
-import {tools} from '../../utils_pull'
+import { tools } from '../../utils_pull'
 
 console.log(tools)
 
@@ -35,14 +35,14 @@ const mockData = [
     timeStamp: Date.now()
   },
   {
-    id:2,
+    id: 2,
     text: '续借《海底两万里》',
     status: 0,
     value: 500,
     timeStamp: Date.now()
   },
   {
-    id:3,
+    id: 3,
     text: '《从你的全世界路过》收入',
     status: 1,
     value: 500,
@@ -69,12 +69,14 @@ class DetailListItem extends PureComponent {
           <Text>
             {this.props.text}
           </Text>
-          <Text style={{fontSize: 12,color: '#999'}}>
+          <Text style={{ fontSize: 12, color: '#999' }}>
             {tools.processTimestamp(this.props.timeStamp)}
           </Text>
         </View>
         <View style={styles.balance}>
-          <Text style={{paddingRight: 4,fontSize: 16, color: this.props.status?'#f00':'#4b6'}}>{this.props.status? '+': '—'}</Text>
+          <Text style={{ paddingRight: 4, fontSize: 16, color: this.props.status ? '#f00' : '#4b6' }}>
+            {this.props.status ? '+' : '-'}
+          </Text>
           <Text>{this.props.value}</Text>
         </View>
       </View>
