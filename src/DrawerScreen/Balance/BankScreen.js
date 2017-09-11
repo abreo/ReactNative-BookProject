@@ -5,7 +5,8 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  TextInput
+  TextInput,
+  Alert
 } from 'react-native'
 
 import Dimensions from 'Dimensions'
@@ -23,9 +24,12 @@ const selectIcons = [
 
 
 class BankCard extends PureComponent {
+  handlePress = () => {
+    Alert.alert('hello')
+  }
   render() {
     return (
-      <TouchableOpacity activeOpacity={.5} >
+      <TouchableOpacity activeOpacity={.5} onPress={this.handlePress}>
         <View style={cardStyles.container}>
           <View style={cardStyles.bankWrap}>
             <Image style={cardStyles.bankIcon} source={this.props.icon} />

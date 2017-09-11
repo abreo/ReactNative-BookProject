@@ -6,10 +6,15 @@ import {
   Image
 } from 'react-native'
 
-import { DrawerNavigator } from 'react-navigation'
+import { StackNavigator, DrawerNavigator } from 'react-navigation'
 
 
 // 主色#4b6
+
+
+// 登陆注册 App入口页
+import LoginScreen from './LoginScreen/LoginScreen'
+
 
 
 // 主屏
@@ -26,7 +31,7 @@ const { width: WIDTH, height: HEIGHT } = Dimensions.get('window')
 
 
 
-const App = DrawerNavigator(
+const AppMain = DrawerNavigator(
   {
     MainDrawer: {
       screen: MainTabNavigator,
@@ -66,7 +71,7 @@ const App = DrawerNavigator(
   },
   {
     // 初始路由测试用
-    initialRouteName: 'BalanceDrawer',
+    // initialRouteName: 'BalanceDrawer',
     // drawer宽度设置
     drawerWidth: 3 * WIDTH / 5,
     // 自定义样式组件
@@ -86,6 +91,21 @@ const itemStyles = StyleSheet.create({
     height: 18
   }
 })
+
+
+const App = StackNavigator(
+  {
+    loginStack: {
+      screen: LoginScreen
+    },
+    AppStack: {
+      screen: AppMain
+    }
+  },
+  {
+    headerMode: 'none'
+  }
+)
 
 
 
