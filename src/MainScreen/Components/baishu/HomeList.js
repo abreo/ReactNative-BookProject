@@ -84,18 +84,18 @@ const mockData = [
 
 
 class BaishuListItem extends PureComponent {
-  handlePress = key => (e) => {
-    console.log(key)
+  onPressNav = key => () => {
+    this.props.onPressBookNav(key)
   }
   render() {
     return (
       <View style={styles.container} >
-        <TouchableOpacity onPress={this.handlePress('bookcover')} activeOpacity={0.8}>
+        <TouchableOpacity onPress={this.onPressNav(this.props.bookName)} activeOpacity={0.8}>
           <View style={styles.itemWrap}>
             <Image source={require('../../images/book_cover.jpeg')} style={styles.bookCover} />
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={this.handlePress('bookinfo')} activeOpacity={0.8}>
+        <TouchableOpacity onPress={this.onPressNav(this.props.bookName)} activeOpacity={0.8}>
           <View style={styles.itemWrap}>
             <View style={styles.bookInfoWrap}>
               <View>
@@ -119,7 +119,7 @@ class BaishuListItem extends PureComponent {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={this.handlePress('user')} activeOpacity={0.8}>
+        <TouchableOpacity onPress={this.onPressNav(this.props.userName)} activeOpacity={0.8}>
           <View style={styles.itemWrap}>
             <View style={styles.userInfoWrap}>
               <Image source={require('../../images/avatar.jpg')} style={styles.userAvatar} />
@@ -208,11 +208,15 @@ class BaishuList extends PureComponent {
   }
   // 确认唯一id
   _keyExtractor = (item) => item.id
-  _onPressItem(id) { Alert.alert(id) }
+  // _onPressItem(id) { Alert.alert(id) }
+  // 处理item点击跳转路由
+  _onPressBookNav = (msg) => {
+    this.props.navigate('BaishuBookStack', { msg })
+  }
   _renderItem = ({ item }) => (
     <BaishuListItem
       id={item.id}
-      onPressItem={this._onPressItem}
+      onPressBookNav={this._onPressBookNav}
       {...item}
     />
   )

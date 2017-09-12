@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react'
 import {
   StyleSheet,
@@ -21,6 +22,12 @@ import LoginScreen from './LoginScreen/LoginScreen'
 import MainTabNavigator from './MainScreen'
 // 余额
 import BalanceStackNavigator from './DrawerScreen/Balance'
+// 积分
+import IntegralStackNavigator from './DrawerScreen/Integral'
+// 常见问题
+import FaqStackNavigator from './DrawerScreen/Faq'
+// 设置
+import SetStackNavigator from './DrawerScreen/Set'
 // 测试
 import TwoTest from './TwoScreen'
 
@@ -30,7 +37,7 @@ import Dimensions from 'Dimensions'
 const { width: WIDTH, height: HEIGHT } = Dimensions.get('window')
 
 
-
+// 主程序
 const AppMain = DrawerNavigator(
   {
     MainDrawer: {
@@ -47,22 +54,22 @@ const AppMain = DrawerNavigator(
         drawerIcon: () => <Image source={require('./images/icons/balance.png')} style={itemStyles.icon} />
       }
     },
-    ss: {
-      screen: TwoTest,
+    IntegralDrawer: {
+      screen: IntegralStackNavigator,
       navigationOptions: {
         drawerLabel: '积分',
         drawerIcon: () => <Image source={require('./images/icons/integral.png')} style={itemStyles.icon} />
       }
     },
-    dd: {
-      screen: TwoTest,
+    FaqDrawer: {
+      screen: FaqStackNavigator,
       navigationOptions: {
         drawerLabel: '常见问题',
         drawerIcon: () => <Image source={require('./images/icons/faq.png')} style={itemStyles.icon} />
       }
     },
-    ee: {
-      screen: TwoTest,
+    SetDrawer: {
+      screen: SetStackNavigator,
       navigationOptions: {
         drawerLabel: '设置',
         drawerIcon: () => <Image source={require('./images/icons/setting.png')} style={itemStyles.icon} />
@@ -70,6 +77,8 @@ const AppMain = DrawerNavigator(
     }
   },
   {
+    // 锁定drawe，拒绝手势打开,修复中
+    // drawerLockMode: 'locked-closed',
     // 初始路由测试用
     // initialRouteName: 'BalanceDrawer',
     // drawer宽度设置
@@ -93,6 +102,7 @@ const itemStyles = StyleSheet.create({
 })
 
 
+// 入口
 const App = StackNavigator(
   {
     loginStack: {
@@ -103,6 +113,9 @@ const App = StackNavigator(
     }
   },
   {
+    // 默认路由
+    initialRouteName: 'AppStack',
+    // 入口页取消header
     headerMode: 'none'
   }
 )

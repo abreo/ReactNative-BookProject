@@ -1785,6 +1785,10 @@ find-up@^2.1.0:
   dependencies:
     locate-path "^2.0.0"
 
+flow-bin@^0.54.1:
+  version "0.54.1"
+  resolved "http://registry.npm.taobao.org/flow-bin/download/flow-bin-0.54.1.tgz#7101bcccf006dc0652714a8aef0c72078a760510"
+
 for-in@^1.0.1:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/for-in/download/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"

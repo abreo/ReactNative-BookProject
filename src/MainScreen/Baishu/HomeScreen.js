@@ -24,7 +24,7 @@ class HomeScreen extends Component {
     return (
       <View style={styles.container}>
         <HomeSearch />
-        <HomeList />
+        <HomeList navigate={navigate} />
       </View>
     )
   }

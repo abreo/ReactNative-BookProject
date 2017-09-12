@@ -27,7 +27,7 @@ class PayModal extends Component {
             underlineColorAndroid="transparent"
             style={modalStyles.input}
           />
-          <Text style={{marginLeft: -14, color: '#999'}}>元</Text>
+          <Text style={{ marginLeft: -14, color: '#999' }}>元</Text>
         </View>
       </View>
     )
@@ -58,7 +58,7 @@ const modalStyles = StyleSheet.create({
 })
 
 
-class BalanceScreen extends Component {
+class IntegralScreen extends Component {
   constructor() {
     super()
     this.state = {
@@ -76,41 +76,22 @@ class BalanceScreen extends Component {
       [key]: false
     })
   }
-  headleWithdrawGo = () => {
-    this.props.navigation.navigate('BalanceWithdrawStack')
+  handleWithdrawNav = () => {
+    this.props.navigation.navigate('IntegralWithdrawStack')
   }
   render() {
     return (
       <View style={styles.container}>
         <View style={[styles.wraping, styles.topContainer]}>
-          <Image source={require('../images/balance_icon.png')} style={styles.rmbIcon} />
+          <Image source={require('../images/integral_icon.png')} style={styles.icon} />
           <Text style={{ fontSize: 11, color: '#999' }}>我的余额</Text>
-          <View style={styles.balanceInfo}>
+          <View style={styles.info}>
             <Text style={{ fontSize: 12, color: '#999', paddingRight: 8, paddingTop: 6 }}>￥</Text>
             <Text style={{ fontSize: 22, color: '#333F' }}>561.15</Text>
           </View>
-          {/* 充值按钮 */}
-          <TouchableOpacity onPress={this.showModal('modal')} style={styles.payButton} activeOpacity={.5}>
-            <Text style={{ color: '#fff', fontSize: 16 }}>充值</Text>
-          </TouchableOpacity>
-          {/* 弹出 */}
-          <Modal
-            title={<Text style={{ fontSize: 15, fontWeight: 'normal', color: '#333' }}>请输入充值金额</Text>}
-            transparent
-            maskClosable={false}
-            visible={this.state.modal}
-            onClose={this.onClose('modal')}
-            footer={[
-              { text: '取消', onPress: () => { this.onClose('modal')() } },
-              { text: '确定', onPress: () => { this.onClose('modal')() } }
-            ]}
-          >
-            <PayModal />
-          </Modal>
-
           {/* 提现按钮 */}
-          <TouchableOpacity onPress={this.headleWithdrawGo} style={styles.withdrawButton} activeOpacity={.5}>
-            <Text style={{ color: '#333', fontSize: 16 }}>提现</Text>
+          <TouchableOpacity onPress={this.handleWithdrawNav} style={styles.withdrawButton} activeOpacity={.5}>
+            <Text style={{ color: '#333', fontSize: 16 }}>变现</Text>
           </TouchableOpacity>
           <View style={styles.detailTitle}>
             <Text>余额明细</Text>
@@ -132,39 +113,24 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10
   },
-  // wraping: {
-  //   flex: 1,
-  //   borderWidth: 1,
-  //  borderColor: '#f00',
-  // },
   topContainer: {
     paddingTop: 20,
     alignItems: 'center'
   },
-  rmbIcon: {
+  icon: {
     width: 100,
     height: 100,
   },
-  balanceInfo: {
+  info: {
     marginRight: 8,
     marginTop: 10,
     flexDirection: 'row',
     alignItems: 'center'
-
-  },
-  payButton: {
-    width: WIDTH - 20,
-    height: 38,
-    marginTop: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 5,
-    backgroundColor: '#4b6'
   },
   withdrawButton: {
     width: WIDTH - 20,
     height: 38,
-    marginTop: 10,
+    marginTop: 30,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 5,
@@ -184,4 +150,4 @@ const styles = StyleSheet.create({
 
 
 
-export default BalanceScreen
+export default IntegralScreen

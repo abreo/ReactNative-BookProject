@@ -15,10 +15,12 @@ class RegisterComponent extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View>
           <View style={styles.inputWrap}>
             <Text style={styles.inputLeftText}>手机号</Text>
             <TextInput underlineColorAndroid="transparent" style={styles.input} />
+            <TouchableOpacity activeOpacity={.5} style={styles.inputCode}>
+              <Text style={{fontSize: 10}}>获取验证码</Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.inputWrap}>
             <Text style={styles.inputLeftText}>验证码</Text>
@@ -27,7 +29,6 @@ class RegisterComponent extends Component {
           <TouchableOpacity style={styles.buttonWrap} activeOpacity={.5}>
             <Text style={styles.buttonText}>注册</Text>
           </TouchableOpacity>
-        </View>
       </View>
     )
   }
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: WIDTH - 20,
-    justifyContent: 'space-between',
+    // justifyContent: 'space-between',
   },
   inputWrap: {
     marginTop: 20,
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     color: '#333'
   },
-  inputRight: {
+  inputCode: {
     position: 'absolute',
     right: 4,
   },

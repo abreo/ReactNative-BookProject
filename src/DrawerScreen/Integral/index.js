@@ -1,44 +1,47 @@
-import React, { Component } from 'react'
+import React, { Component, PureComponent } from 'react'
 import {
   StyleSheet,
   View,
   Text,
   Image,
+  Button,
   TouchableOpacity
 } from 'react-native'
 import { StackNavigator } from 'react-navigation'
 
 // screen引入
-import BalanceScreen from './BalanceScreen'
+import IntegralScreen from './IntegralScreen'
 import WithdrawScreen from './WithdrawScreen'
-import BankScreen from './BankScreen'
+import RuleScreen from './RuleScreen'
 
 // component引入
 import HeaderBack from '../Components/HeaderBack'
+import HeaderRight from '../Components/HeaderRight'
 
-const BalanceStackNavigator = StackNavigator(
+
+const IntegralStackNavigator = StackNavigator(
   {
-    BalanceBalanceStack: {
-      screen: BalanceScreen,
+    IntegralIntegralStack: {
+      screen: IntegralScreen,
       navigationOptions: ({ navigation }) => ({
-        headerTitle: '余额',
+        headerTitle: '积分',
         headerLeft: <HeaderBack {...navigation} target={{ type: 'navigate', value: "MainDrawer" }} />,
-        headerRight: () => { },
+        headerRight: <HeaderRight {...navigation} target={{type: 'navigate', value: 'IntegralRuleStack'}} text="规则"/>,
       })
     },
-    BalanceWithdrawStack: {
+    IntegralWithdrawStack: {
       screen: WithdrawScreen,
       navigationOptions: ({ navigation }) => ({
-        headerTitle: '提现',
-        headerLeft: <HeaderBack {...navigation} target={{ type: 'goBack', value: null }} />,
+        headerTitle: '积分变现',
+        headerLeft: <HeaderBack {...navigation} target={{ type: 'goBack' }} />,
         headerRight: () => { },
       })
     },
-    BalanceBankStack: {
-      screen: BankScreen,
+    IntegralRuleStack: {
+      screen: RuleScreen,
       navigationOptions: ({ navigation }) => ({
-        headerTitle: '银行卡',
-        headerLeft: <HeaderBack {...navigation} target={{ type: 'goBack', value: null }} />,
+        headerTitle: '积分规则',
+        headerLeft: <HeaderBack {...navigation} target={{ type: 'goBack' }} />,
         headerRight: () => { },
       })
     }
@@ -55,4 +58,4 @@ const BalanceStackNavigator = StackNavigator(
   }
 )
 
-export default BalanceStackNavigator
+export default IntegralStackNavigator

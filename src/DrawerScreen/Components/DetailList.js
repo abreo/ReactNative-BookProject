@@ -11,7 +11,7 @@ import {
 import Dimensions from 'Dimensions'
 const { width: WIDTH } = Dimensions.get('window')
 
-import { tools } from '../../utils_pull'
+import { tools } from '../utils_pull'
 
 console.log(tools)
 

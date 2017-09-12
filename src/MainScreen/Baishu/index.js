@@ -9,7 +9,10 @@ import {
 
 
 import { StackNavigator } from 'react-navigation'
+
+// screen
 import HomeScreen from './HomeScreen'
+import BookScreen from './BookScreen'
 
 const BaishuStackNavigator = StackNavigator(
   {
@@ -18,6 +21,16 @@ const BaishuStackNavigator = StackNavigator(
       screen: HomeScreen,
       navigationOptions: {
         headerTitle: '掰书'
+      }
+    },
+    // 书本详情页
+    BaishuBookStack: {
+      screen: BookScreen,
+      navigationOptions: ({ navigation: { state } }) => {
+        console.log(state)
+        return {
+          headerTitle: state.params.msg
+        }
       }
     }
   },

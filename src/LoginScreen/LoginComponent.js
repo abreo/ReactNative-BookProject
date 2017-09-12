@@ -8,6 +8,11 @@ import {
   TextInput
 } from 'react-native'
 
+function fn() {
+
+}
+fn()
+
 import Dimensions from 'Dimensions'
 const { width: WIDTH } = Dimensions.get('window')
 

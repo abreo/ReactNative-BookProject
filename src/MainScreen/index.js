@@ -38,10 +38,12 @@ const MainTab = TabNavigator(
   {
     MainBaishuTab: {
       screen: BaishuStackNavigator,
-      navigationOptions: {
+      navigationOptions: ({ navigation: { state } }) => ({
         tabBarLabel: '掰书',
-        tabBarIcon: (e) => renderTabIcon(e, 'baishu')
-      }
+        tabBarIcon: (e) => renderTabIcon(e, 'baishu'),
+        // 判断路由层级，子路由隐藏tab
+        tabBarVisible: state.index === 0
+      })
     },
     MainChatTab: {
       screen: ChatStackNavigator,

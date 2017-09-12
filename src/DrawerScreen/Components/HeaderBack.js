@@ -7,7 +7,7 @@ import {
   TouchableOpacity
 } from 'react-native'
 
-const HeaderBack = ({ navigation: { navigate, goBack }, target }) => {
+const HeaderBack = ({ navigate, goBack, target }) => {
   const handlePress = () => {
     switch (target.type) {
       case 'navigate':
