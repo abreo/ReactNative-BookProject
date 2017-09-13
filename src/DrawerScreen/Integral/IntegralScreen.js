@@ -14,50 +14,6 @@ const { width: WIDTH } = Dimensions.get('window')
 // 余额列表
 import DetailList from '../Components/DetailList'
 
-import { Modal, Toast } from 'antd-mobile'
-const prompt = Modal.prompt
-
-// 充值Modal
-class PayModal extends Component {
-  render() {
-    return (
-      <View style={modalStyles.container}>
-        <View style={modalStyles.inputWrap}>
-          <TextInput
-            underlineColorAndroid="transparent"
-            style={modalStyles.input}
-          />
-          <Text style={{ marginLeft: -14, color: '#999' }}>元</Text>
-        </View>
-      </View>
-    )
-  }
-}
-
-const modalStyles = StyleSheet.create({
-  container: {
-    height: 80,
-    justifyContent: 'center',
-    alignItems: 'center',
-    // borderWidth: 1,
-    // borderColor: '#f00'
-  },
-  inputWrap: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  input: {
-    width: 120,
-    padding: 0,
-    paddingRight: 14,
-    borderBottomWidth: 1,
-    borderBottomColor: '#4b6',
-    textAlign: 'center'
-  }
-})
-
-
 class IntegralScreen extends Component {
   constructor() {
     super()

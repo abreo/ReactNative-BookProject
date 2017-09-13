@@ -10,13 +10,11 @@ import {
   Alert
 } from 'react-native'
 
-import { Modal } from 'antd-mobile'
-
 import Dimensions from 'Dimensions'
 
 const { width: WIDTH } = Dimensions.get('window')
 // 初始渲染条数
-const ITEM_NUM = 4
+const ITEM_NUM = 5
 
 // mock
 const mockData = [
@@ -35,7 +33,7 @@ const mockData = [
     bookName: '海底两万里',
     bookAuthor: '作者',
     bookCover: require('../../images/book_cover.jpeg'),
-    userName: '列夫托尔斯泰',
+    userName: '列夫托尔斯泰大苏打',
     userAvatar: require('../../images/avatar.jpg'),
     grade: 6.5,
     position: 213
@@ -90,6 +88,7 @@ class BaishuListItem extends PureComponent {
   render() {
     return (
       <View style={styles.container} >
+        <View style={{flexDirection: 'row'}}>
         <TouchableOpacity onPress={this.onPressNav(this.props.bookName)} activeOpacity={0.8}>
           <View style={styles.itemWrap}>
             <Image source={require('../../images/book_cover.jpeg')} style={styles.bookCover} />
@@ -119,6 +118,7 @@ class BaishuListItem extends PureComponent {
             </View>
           </View>
         </TouchableOpacity>
+        </View>
         <TouchableOpacity onPress={this.onPressNav(this.props.userName)} activeOpacity={0.8}>
           <View style={styles.itemWrap}>
             <View style={styles.userInfoWrap}>
@@ -138,7 +138,8 @@ const styles = StyleSheet.create({
   container: {
     width: WIDTH,
     height: 140,
-    padding: 12,
+    paddingRight: 4,
+    paddingLeft: 6,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -149,11 +150,11 @@ const styles = StyleSheet.create({
     // borderColor: '#f00'
   },
   bookCover: {
-    width: 80,
+    width: 76,
     height: 112
   },
   bookInfoWrap: {
-    width: 160,
+    // width: 160,
     height: 112,
     paddingLeft: 16,
     justifyContent: 'space-between'

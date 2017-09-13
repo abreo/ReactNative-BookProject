@@ -5,7 +5,8 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  TextInput
+  TextInput,
+  Modal
 } from 'react-native'
 
 import Dimensions from 'Dimensions'
@@ -14,49 +15,48 @@ const { width: WIDTH } = Dimensions.get('window')
 // 余额列表
 import DetailList from '../Components/DetailList'
 
-import { Modal, Toast } from 'antd-mobile'
-const prompt = Modal.prompt
 
 // 充值Modal
-class PayModal extends Component {
-  render() {
-    return (
-      <View style={modalStyles.container}>
-        <View style={modalStyles.inputWrap}>
-          <TextInput
-            underlineColorAndroid="transparent"
-            style={modalStyles.input}
-          />
-          <Text style={{marginLeft: -14, color: '#999'}}>元</Text>
-        </View>
-      </View>
-    )
-  }
-}
+// class PayModal extends Component {
+//   render() {
+//     return (
+//       <View style={modalStyles.container}>
+//         <View style={modalStyles.inputWrap}>
+//           <TextInput
+//             underlineColorAndroid="transparent"
+//             style={modalStyles.input}
+//           />
+//           <Text style={{ marginLeft: -14, color: '#999' }}>元</Text>
+//         </View>
+//       </View>
+//     )
+//   }
+// }
 
-const modalStyles = StyleSheet.create({
-  container: {
-    height: 80,
-    justifyContent: 'center',
-    alignItems: 'center',
-    // borderWidth: 1,
-    // borderColor: '#f00'
-  },
-  inputWrap: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  input: {
-    width: 120,
-    padding: 0,
-    paddingRight: 14,
-    borderBottomWidth: 1,
-    borderBottomColor: '#4b6',
-    textAlign: 'center'
-  }
-})
+// const modalStyles = StyleSheet.create({
+//   container: {
+//     height: 80,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     // borderWidth: 1,
+//     // borderColor: '#f00'
+//   },
+//   inputWrap: {
+//     flexDirection: 'row',
+//     justifyContent: 'center',
+//     alignItems: 'center'
+//   },
+//   input: {
+//     width: 120,
+//     padding: 0,
+//     paddingRight: 14,
+//     borderBottomWidth: 1,
+//     borderBottomColor: '#4b6',
+//     textAlign: 'center'
+//   }
+// })
 
+import JModal from '../../Components/JModal'
 
 class BalanceScreen extends Component {
   constructor() {
@@ -72,6 +72,7 @@ class BalanceScreen extends Component {
     })
   }
   onClose = key => () => {
+    console.log(key)
     this.setState({
       [key]: false
     })
@@ -94,19 +95,14 @@ class BalanceScreen extends Component {
             <Text style={{ color: '#fff', fontSize: 16 }}>充值</Text>
           </TouchableOpacity>
           {/* 弹出 */}
-          <Modal
-            title={<Text style={{ fontSize: 15, fontWeight: 'normal', color: '#333' }}>请输入充值金额</Text>}
-            transparent
-            maskClosable={false}
-            visible={this.state.modal}
-            onClose={this.onClose('modal')}
-            footer={[
-              { text: '取消', onPress: () => { this.onClose('modal')() } },
-              { text: '确定', onPress: () => { this.onClose('modal')() } }
-            ]}
+
+          <JModal
+            modalVisible={{ label: 'modal', value: this.state.modal }}
+            onConfirmEvent={this.onClose}
+            onCancelEvent={this.onClose}
           >
-            <PayModal />
-          </Modal>
+            <Text>为loco么、</Text>
+          </JModal>
 
           {/* 提现按钮 */}
           <TouchableOpacity onPress={this.headleWithdrawGo} style={styles.withdrawButton} activeOpacity={.5}>
@@ -125,6 +121,8 @@ class BalanceScreen extends Component {
   }
 }
 
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -132,11 +130,6 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10
   },
-  // wraping: {
-  //   flex: 1,
-  //   borderWidth: 1,
-  //  borderColor: '#f00',
-  // },
   topContainer: {
     paddingTop: 20,
     alignItems: 'center'

@@ -7,18 +7,12 @@ import {
 } from 'react-native'
 
 // 公共组件
-import { HeaderUser, HeaderQR } from '../Components'
+
 // 模块组件
 import { HomeList, HomeSearch } from '../Components/baishu'
 
 
 class HomeScreen extends Component {
-  static navigationOptions = (props) => {
-    return {
-      headerLeft: <HeaderUser {...props} />,
-      headerRight: <HeaderQR {...props} />
-    }
-  }
   render() {
     const { navigate } = this.props.navigation
     return (

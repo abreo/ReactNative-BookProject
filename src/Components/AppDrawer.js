@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   infoWrap: {
-    height: 300,
+    height: 280,
     alignItems: 'center',
     // borderWidth: 2,
     // borderColor: '#f00'

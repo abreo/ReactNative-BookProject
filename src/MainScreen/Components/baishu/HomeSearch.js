@@ -38,8 +38,7 @@ const styles = StyleSheet.create({
     height: 48,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
-    // backgroundColor: '#f00'
+    alignItems: 'center'
   },
   search: {
     flexDirection: 'row',
@@ -49,7 +48,7 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     height: 30,
-    width: 304,
+    width: WIDTH - 40,
     padding: 0,
     paddingRight: 6,
     paddingLeft: 6
