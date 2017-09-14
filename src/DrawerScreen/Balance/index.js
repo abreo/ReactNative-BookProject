@@ -14,7 +14,8 @@ import WithdrawScreen from './WithdrawScreen'
 import BankScreen from './BankScreen'
 
 // component引入
-import HeaderBack from '../Components/HeaderBack'
+// import HeaderBack from '../Components/HeaderBack'
+import { JReact } from '../Components'
 
 const BalanceStackNavigator = StackNavigator(
   {
@@ -22,7 +23,7 @@ const BalanceStackNavigator = StackNavigator(
       screen: BalanceScreen,
       navigationOptions: ({ navigation }) => ({
         headerTitle: '余额',
-        headerLeft: <HeaderBack {...navigation} target={{ type: 'navigate', value: "MainDrawer" }} />,
+        headerLeft: <JReact.HeaderBack {...navigation} target={{ type: 'navigate', value: "MainDrawer" }} />,
         headerRight: () => { },
       })
     },
@@ -30,7 +31,7 @@ const BalanceStackNavigator = StackNavigator(
       screen: WithdrawScreen,
       navigationOptions: ({ navigation }) => ({
         headerTitle: '提现',
-        headerLeft: <HeaderBack {...navigation} target={{ type: 'goBack', value: null }} />,
+        headerLeft: <JReact.HeaderBack {...navigation} target={{ type: 'goBack', value: null }} />,
         headerRight: () => { },
       })
     },
@@ -38,7 +39,7 @@ const BalanceStackNavigator = StackNavigator(
       screen: BankScreen,
       navigationOptions: ({ navigation }) => ({
         headerTitle: '银行卡',
-        headerLeft: <HeaderBack {...navigation} target={{ type: 'goBack', value: null }} />,
+        headerLeft: <JReact.HeaderBack {...navigation} target={{ type: 'goBack', value: null }} />,
         headerRight: () => { },
       })
     }

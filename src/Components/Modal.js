@@ -6,11 +6,29 @@ import {
   Modal,
   TouchableOpacity,
 } from 'react-native'
+import PropTypes from 'prop-types'
 
 import Dimensions from 'Dimensions'
 const { width: WIDTH } = Dimensions.get('window')
 
 class JModal extends PureComponent {
+  static propTypes = {
+    title: PropTypes.string,
+    modalVisible: PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.bool.isRequired
+    }),
+    onConfirmEvent: PropTypes.func.isRequired,
+    onCancelEvent: PropTypes.func.isRequired,
+    confirmButton: PropTypes.shape({
+      text: PropTypes.string,
+      color: PropTypes.string
+    }),
+    cancelButton: PropTypes.shape({
+      text: PropTypes.string,
+      color: PropTypes.string
+    }),
+  }
   render() {
     const {
       // 标题

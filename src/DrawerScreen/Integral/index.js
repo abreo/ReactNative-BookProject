@@ -15,8 +15,9 @@ import WithdrawScreen from './WithdrawScreen'
 import RuleScreen from './RuleScreen'
 
 // component引入
-import HeaderBack from '../Components/HeaderBack'
-import HeaderRight from '../Components/HeaderRight'
+import { JReact } from '../Components'
+// import HeaderBack from '../Components/HeaderBack'
+// import HeaderRight from '../Components/HeaderRight'
 
 
 const IntegralStackNavigator = StackNavigator(
@@ -25,15 +26,15 @@ const IntegralStackNavigator = StackNavigator(
       screen: IntegralScreen,
       navigationOptions: ({ navigation }) => ({
         headerTitle: '积分',
-        headerLeft: <HeaderBack {...navigation} target={{ type: 'navigate', value: "MainDrawer" }} />,
-        headerRight: <HeaderRight {...navigation} target={{type: 'navigate', value: 'IntegralRuleStack'}} text="规则"/>,
+        headerLeft: <JReact.HeaderBack {...navigation} target={{ type: 'navigate', value: "MainDrawer" }} />,
+        headerRight: <JReact.HeaderRight {...navigation} target={{type: 'navigate', value: 'IntegralRuleStack'}} text="规则"/>,
       })
     },
     IntegralWithdrawStack: {
       screen: WithdrawScreen,
       navigationOptions: ({ navigation }) => ({
         headerTitle: '积分变现',
-        headerLeft: <HeaderBack {...navigation} target={{ type: 'goBack' }} />,
+        headerLeft: <JReact.HeaderBack {...navigation} target={{ type: 'goBack' }} />,
         headerRight: () => { },
       })
     },
@@ -41,7 +42,7 @@ const IntegralStackNavigator = StackNavigator(
       screen: RuleScreen,
       navigationOptions: ({ navigation }) => ({
         headerTitle: '积分规则',
-        headerLeft: <HeaderBack {...navigation} target={{ type: 'goBack' }} />,
+        headerLeft: <JReact.HeaderBack {...navigation} target={{ type: 'goBack' }} />,
         headerRight: () => { },
       })
     }

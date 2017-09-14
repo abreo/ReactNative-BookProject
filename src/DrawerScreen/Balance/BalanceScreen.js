@@ -12,51 +12,52 @@ import {
 import Dimensions from 'Dimensions'
 const { width: WIDTH } = Dimensions.get('window')
 
-// 余额列表
-import DetailList from '../Components/DetailList'
 
+import {
+  JReact,
+  DetailList
+} from '../Components'
 
 // 充值Modal
-// class PayModal extends Component {
-//   render() {
-//     return (
-//       <View style={modalStyles.container}>
-//         <View style={modalStyles.inputWrap}>
-//           <TextInput
-//             underlineColorAndroid="transparent"
-//             style={modalStyles.input}
-//           />
-//           <Text style={{ marginLeft: -14, color: '#999' }}>元</Text>
-//         </View>
-//       </View>
-//     )
-//   }
-// }
+class PayModal extends Component {
+  render() {
+    return (
+      <View style={modalStyles.container}>
+        <View style={modalStyles.inputWrap}>
+          <TextInput
+            underlineColorAndroid="transparent"
+            style={modalStyles.input}
+          />
+          <Text style={{ marginLeft: -14, color: '#999' }}>元</Text>
+        </View>
+      </View>
+    )
+  }
+}
 
-// const modalStyles = StyleSheet.create({
-//   container: {
-//     height: 80,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     // borderWidth: 1,
-//     // borderColor: '#f00'
-//   },
-//   inputWrap: {
-//     flexDirection: 'row',
-//     justifyContent: 'center',
-//     alignItems: 'center'
-//   },
-//   input: {
-//     width: 120,
-//     padding: 0,
-//     paddingRight: 14,
-//     borderBottomWidth: 1,
-//     borderBottomColor: '#4b6',
-//     textAlign: 'center'
-//   }
-// })
-
-import JModal from '../../Components/JModal'
+const modalStyles = StyleSheet.create({
+  container: {
+    height: 80,
+    justifyContent: 'center',
+    alignItems: 'center',
+    // borderWidth: 1,
+    // borderColor: '#f00'
+  },
+  inputWrap: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  input: {
+    width: 120,
+    padding: 0,
+    paddingLeft: 14,
+    paddingRight: 14,
+    borderBottomWidth: 1,
+    borderBottomColor: '#4b6',
+    textAlign: 'center'
+  }
+})
 
 class BalanceScreen extends Component {
   constructor() {
@@ -96,13 +97,14 @@ class BalanceScreen extends Component {
           </TouchableOpacity>
           {/* 弹出 */}
 
-          <JModal
+          <JReact.Modal
+            title="请输入充值金额"
             modalVisible={{ label: 'modal', value: this.state.modal }}
             onConfirmEvent={this.onClose}
             onCancelEvent={this.onClose}
           >
-            <Text>为loco么、</Text>
-          </JModal>
+            <PayModal />
+          </JReact.Modal>
 
           {/* 提现按钮 */}
           <TouchableOpacity onPress={this.headleWithdrawGo} style={styles.withdrawButton} activeOpacity={.5}>

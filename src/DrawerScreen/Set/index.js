@@ -14,8 +14,10 @@ import SetScreen from './SetScreen'
 import AvatarScreen from './AvatarScreen'
 
 // component引入
-import HeaderBack from '../Components/HeaderBack'
+// import HeaderBack from '../Components/HeaderBack'
 // import HeaderRight from '../Components/HeaderRight'
+
+import { JReact } from '../Components'
 
 
 const SetStackNavigator = StackNavigator(
@@ -24,15 +26,15 @@ const SetStackNavigator = StackNavigator(
       screen: SetScreen,
       navigationOptions: ({ navigation }) => ({
         headerTitle: '个人设置',
-        headerLeft: <HeaderBack {...navigation} target={{ type: 'navigate', value: "MainDrawer" }} />,
-        headerRight: () => {},
+        headerLeft: <JReact.HeaderBack {...navigation} target={{ type: 'navigate', value: "MainDrawer" }} />,
+        headerRight: () => { },
       })
     },
     SetAvatarStack: {
       screen: AvatarScreen,
       navigationOptions: ({ navigation }) => ({
         headerTitle: '编辑头像',
-        headerLeft: <HeaderBack {...navigation} target={{ type: 'navigate', value: "SetSetStack" }} />,
+        headerLeft: <JReact.HeaderBack {...navigation} target={{ type: 'navigate', value: "SetSetStack" }} />,
         headerRight: () => { },
       })
     }

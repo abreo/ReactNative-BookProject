@@ -14,8 +14,7 @@ import FaqScreen from './FaqScreen'
 import SuggestScreen from './SuggestScreen'
 
 // component引入
-import HeaderBack from '../Components/HeaderBack'
-import HeaderRight from '../Components/HeaderRight'
+import { JReact } from '../Components'
 
 
 const FaqStackNavigator = StackNavigator(
@@ -24,15 +23,15 @@ const FaqStackNavigator = StackNavigator(
       screen: FaqScreen,
       navigationOptions: ({ navigation }) => ({
         headerTitle: '常见问题',
-        headerLeft: <HeaderBack {...navigation} target={{ type: 'navigate', value: "MainDrawer" }} />,
-        headerRight: <HeaderRight {...navigation} target={{ type: 'navigate', value: 'FaqSuggestStack' }} text="反馈" />,
+        headerLeft: <JReact.HeaderBack {...navigation} target={{ type: 'navigate', value: "MainDrawer" }} />,
+        headerRight: <JReact.HeaderRight {...navigation} target={{ type: 'navigate', value: 'FaqSuggestStack' }} text="反馈" />,
       })
     },
     FaqSuggestStack: {
       screen: SuggestScreen,
       navigationOptions: ({ navigation }) => ({
         headerTitle: '反馈',
-        headerLeft: <HeaderBack {...navigation} target={{ type: 'navigate', value: "FaqFaqStack" }} />,
+        headerLeft: <JReact.HeaderBack {...navigation} target={{ type: 'navigate', value: "FaqFaqStack" }} />,
         headerRight: () => { },
       })
     }

@@ -1,13 +1,9 @@
-import HeaderQR from './HeaderQR'
-import HeaderUser from './HeaderUser'
-import HeaderBack from './HeaderBack'
-import HeaderRight from './HeaderRight'
+import * as JReact from '../../Components'
 
 
 // 设置导出
 export {
-  HeaderQR,
-  HeaderUser,
-  HeaderBack,
-  HeaderRight
+  JReact,
+  
+
 }

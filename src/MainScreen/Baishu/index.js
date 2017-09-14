@@ -13,7 +13,7 @@ import HomeScreen from './HomeScreen'
 import BookScreen from './BookScreen'
 
 // component
-import {HeaderUser, HeaderQR} from '../Components'
+import { JReact } from '../Components'
 
 const BaishuStackNavigator = StackNavigator(
   {
@@ -22,19 +22,18 @@ const BaishuStackNavigator = StackNavigator(
       screen: HomeScreen,
       navigationOptions: ({ navigation }) => ({
         headerTitle: '掰书',
-        headerLeft: <HeaderUser navigate={navigation.navigate} />,
-        headerRight: <HeaderQR navigate={navigation.navigate} />
+        headerLeft: <JReact.HeaderUser navigate={navigation.navigate} />,
+        headerRight: <JReact.HeaderQR navigate={navigation.navigate} />
       })
     },
     // 书本详情页
     BaishuBookStack: {
       screen: BookScreen,
-      navigationOptions: ({ navigation: { state } }) => {
-        console.log(state)
-        return {
-          headerTitle: state.params.msg
-        }
-      }
+      navigationOptions: ({ navigation }) => ({
+        headerTitle: navigation.state.params.msg,
+        headerLeft: <JReact.HeaderBack {...navigation} target={{ type: 'goBack' }} />,
+        headerRight: () => { }
+      })
     }
   },
   {

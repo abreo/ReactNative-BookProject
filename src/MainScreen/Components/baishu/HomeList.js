@@ -12,6 +12,8 @@ import {
 
 import Dimensions from 'Dimensions'
 
+import { JReact } from '../index'
+
 const { width: WIDTH } = Dimensions.get('window')
 // 初始渲染条数
 const ITEM_NUM = 5
@@ -25,7 +27,7 @@ const mockData = [
     bookCover: require('../../images/book_cover.jpeg'),
     userName: '阿猛',
     userAvatar: require('../../images/avatar.jpg'),
-    grade: 8.9,
+    grade: 100,
     position: 200
   },
   {
@@ -35,7 +37,7 @@ const mockData = [
     bookCover: require('../../images/book_cover.jpeg'),
     userName: '列夫托尔斯泰大苏打',
     userAvatar: require('../../images/avatar.jpg'),
-    grade: 6.5,
+    grade: 93,
     position: 213
   },
   {
@@ -45,7 +47,7 @@ const mockData = [
     bookCover: require('../../images/book_cover.jpeg'),
     userName: '小时',
     userAvatar: require('../../images/avatar.jpg'),
-    grade: 6.5,
+    grade: 81,
     position: 321
   },
   {
@@ -55,7 +57,7 @@ const mockData = [
     bookCover: require('../../images/book_cover.jpeg'),
     userName: '小时',
     userAvatar: require('../../images/avatar.jpg'),
-    grade: 6.5,
+    grade: 10,
     position: 333
   },
   {
@@ -65,7 +67,7 @@ const mockData = [
     bookCover: require('../../images/book_cover.jpeg'),
     userName: '小时',
     userAvatar: require('../../images/avatar.jpg'),
-    grade: 6.5,
+    grade: 22,
     position: 400
   },
   {
@@ -75,7 +77,7 @@ const mockData = [
     bookCover: require('../../images/book_cover.jpeg'),
     userName: '小时',
     userAvatar: require('../../images/avatar.jpg'),
-    grade: 6.5,
+    grade: 65,
     position: 555
   }
 ]
@@ -88,36 +90,29 @@ class BaishuListItem extends PureComponent {
   render() {
     return (
       <View style={styles.container} >
-        <View style={{flexDirection: 'row'}}>
-        <TouchableOpacity onPress={this.onPressNav(this.props.bookName)} activeOpacity={0.8}>
-          <View style={styles.itemWrap}>
-            <Image source={require('../../images/book_cover.jpeg')} style={styles.bookCover} />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.onPressNav(this.props.bookName)} activeOpacity={0.8}>
-          <View style={styles.itemWrap}>
-            <View style={styles.bookInfoWrap}>
-              <View>
-                <Text style={styles.bookTitle}>{this.props.bookName}</Text>
-                <Text style={styles.bookAuthor}>(中) {this.props.bookAuthor}</Text>
-                <View style={styles.bookGrade}>
-                  <View style={styles.bookGradeStar}>
-                    <Image source={require('../../images/icons/start.png')} style={{ width: 20, height: 20 }} />
-                    <Image source={require('../../images/icons/start.png')} style={{ width: 20, height: 20 }} />
-                    <Image source={require('../../images/icons/start.png')} style={{ width: 20, height: 20 }} />
-                    <Image source={require('../../images/icons/start.png')} style={{ width: 20, height: 20 }} />
-                    <Image source={require('../../images/icons/start.png')} style={{ width: 20, height: 20 }} />
+        <View style={{ flexDirection: 'row' }}>
+          <TouchableOpacity onPress={this.onPressNav(this.props.bookName)} activeOpacity={0.8}>
+            <View style={styles.itemWrap}>
+              <Image source={require('../../images/book_cover.jpeg')} style={styles.bookCover} />
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.onPressNav(this.props.bookName)} activeOpacity={0.8}>
+            <View style={styles.itemWrap}>
+              <View style={styles.bookInfoWrap}>
+                <View>
+                  <Text style={styles.bookTitle}>{this.props.bookName}</Text>
+                  <Text style={styles.bookAuthor}>(中) {this.props.bookAuthor}</Text>
+                  <View style={styles.bookGrade}>
+                    <JReact.RatingBar score={this.props.grade} />
                   </View>
-                  <Text style={styles.bookGradeNum}>{this.props.grade}</Text>
+                </View>
+                <View style={styles.bookPosition}>
+                  <Image source={require('../../images/icons/position.png')} style={{ width: 16, height: 16 }} />
+                  <Text>{this.props.position}米</Text>
                 </View>
               </View>
-              <View style={styles.bookPosition}>
-                <Image source={require('../../images/icons/position.png')} style={{ width: 16, height: 16 }} />
-                <Text>{this.props.position}米</Text>
-              </View>
             </View>
-          </View>
-        </TouchableOpacity>
+          </TouchableOpacity>
         </View>
         <TouchableOpacity onPress={this.onPressNav(this.props.userName)} activeOpacity={0.8}>
           <View style={styles.itemWrap}>
@@ -168,17 +163,7 @@ const styles = StyleSheet.create({
     color: '#aaa'
   },
   bookGrade: {
-    marginTop: 6,
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  bookGradeStar: {
-    flexDirection: 'row',
-  },
-  bookGradeNum: {
-    marginLeft: 6,
-    fontSize: 13,
-
+    marginTop: 4
   },
   bookPosition: {
     flexDirection: 'row',

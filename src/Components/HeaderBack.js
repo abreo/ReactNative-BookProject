@@ -20,7 +20,7 @@ const HeaderBack = ({ navigate, goBack, target }) => {
   }
   return (
     <TouchableOpacity activeOpacity={0.5} onPress={handlePress}>
-      <Image source={require('../images/icons/back.png')} style={styles.icon} />
+      <Image source={require('./images/icons/back.png')} style={styles.icon} />
     </TouchableOpacity>
   )
 }
