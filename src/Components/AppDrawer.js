@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     marginTop: 60,
-    borderRadius: 50
+    borderRadius: 30
   },
   infoUser: {
     marginTop: 4,
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    borderRadius: 50,
+    borderRadius: 8,
     backgroundColor: 'rgba(0, 0, 0, 0.1)'
   },
   infoRanking: {

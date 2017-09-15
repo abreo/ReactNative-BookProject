@@ -6,10 +6,19 @@ import {
   TouchableOpacity,
   Image
 } from 'react-native'
+import PropTypes from 'prop-types'
+
+import Dimensions from 'Dimensions'
+const { width: WIDTH } = Dimensions.get('window')
 
 
 
 class TextWrap extends Component {
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    user: PropTypes.object,
+    content: PropTypes.string
+  }
   constructor() {
     super()
     this.state = {
@@ -18,17 +27,11 @@ class TextWrap extends Component {
   }
   handleUnfold = () => {
     this.setState({
-      LineNum: 10
+      LineNum: 100
     })
   }
   render() {
-    const { type } = this.props
-    const title = '推进语'
-    const user = {
-      name: '此道通长安',
-      avatar: require('../../images/avatar.jpg')
-    }
-
+    const { title, content, user = false } = this.props
     return (
       <View style={styles.container}>
         <Text style={[styles.textColor]}>
@@ -37,22 +40,19 @@ class TextWrap extends Component {
 
         <View style={styles.bodyWrap}>
           {
-            type &&
+            user &&
             <View style={styles.user}>
               <Image source={user.avatar} style={styles.userAvatar} />
             </View>
           }
 
-          <View>
+          <View style={styles.areaTextWrap}>
             {
-              type &&
+              user &&
               <Text style={styles.userName}>{user.name}</Text>
             }
-            <Text numberOfLines={this.state.LineNum} style={styles.areaText}>
-              内容这是内搜索， 内容这是内搜索， 内容这是内搜索， 内容这是内搜索,
-              内容这是内搜索， 内容这是内搜索， 内容这是内搜索， 内容这是内搜索,
-              内容这是内搜索， 内容这是内搜索， 内容这是内搜索， 内容这是内搜索,
-              内容这是内搜索， 内容这是内搜索， 内容这是内搜索， 内容这是内搜索
+            <Text numberOfLines={this.state.LineNum} style={[styles.areaText, user && styles.userAreaText]}>
+              {content}
             </Text>
           </View>
 
@@ -75,20 +75,32 @@ const styles = StyleSheet.create({
     color: '#999'
   },
   container: {
-    borderBottomWidth: .3,
-    borderBottomColor: '#ccc'
+    borderBottomWidth: .5,
+    borderBottomColor: '#ccc',
+    paddingTop: 10,
+    paddingBottom: 10,
   },
   bodyWrap: {
-    paddingTop: 10,
+    paddingTop: 6,
     // borderWidth: 1,
     flexDirection: 'row'
   },
+  // areaTextWrap: {
+  //   borderWidth: 1,
+  //   width: 200,
+  // },
   areaText: {
+    //   // 设定屏幕-20
+    //   width: WIDTH - 20,
     marginTop: 6,
     marginBottom: 6,
     lineHeight: 24,
-    fontSize: 16,
-    color: '#333'
+    // fontSize: 16,
+    color: '#333',
+  },
+  userAreaText: {
+    // 虽然不知道为啥,但还是-80
+    width: WIDTH - 80
   },
   footerWrap: {
     flexDirection: 'row',
@@ -105,6 +117,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     marginRight: 10,
+    borderRadius: 25
   },
   userName: {
     fontSize: 16,

@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     height: 48,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   search: {
     flexDirection: 'row',

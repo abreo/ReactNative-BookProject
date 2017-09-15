@@ -17,7 +17,7 @@ class IntervalSpace extends PureComponent {
     const { text = '' } = this.props
     return (
       <View style={styles.container}>
-        <Text sytle={styles.text}>{text}</Text>
+        <Text style={styles.text}>{text}</Text>
       </View>
     )
   }

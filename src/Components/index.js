@@ -10,6 +10,8 @@ import HeaderUser from './HeaderUser'
 import RatingBar from './RatingBar'
 // 页面间隔
 import IntervalSpace from './IntervalSpace'
+// 评论
+import CommentItem from './CommentItem'
 
 
 
@@ -21,5 +23,6 @@ export {
   HeaderRight,
   HeaderUser,
   RatingBar,
-  IntervalSpace
+  IntervalSpace,
+  CommentItem
 }
