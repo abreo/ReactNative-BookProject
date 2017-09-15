@@ -24,12 +24,24 @@ const baseUser = {
 const baseContent = `一个巨大的互联网知识库，汇聚了上亿网民的智慧结晶，搜狗知识则搜索聚合了多家百科、问答类网站的优质数据。知识搜索正式版融入健康、游戏、旅游等垂直领域问答网站的优质数据，进一步突出“博采众家之长”的产品特色。搜狗知识搜索利用了搜索匹配技术，能够向用户提供更相关的搜索结果。`
 
 
+const lockIcons = [require('../images/icons/lock.png'), require('../images/icons/lock_selected.png')]
 
 // 背景模糊程度
 const BLURNUM = 8
 
 
 class BookScreen extends Component {
+  constructor() {
+    super()
+    this.state = {
+      locked: false
+    }
+  }
+  handleLock = () => {
+    this.setState({
+      locked: !this.state.locked
+    })
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -81,6 +93,7 @@ class BookScreen extends Component {
           <JReact.CommentItem />
           <JReact.CommentItem />
         </ScrollView >
+
         <View style={styles.footerWrap}>
           <TouchableOpacity style={styles.footerItem} activeOpacity={.5}>
             <View >
@@ -93,9 +106,9 @@ class BookScreen extends Component {
               <Text>沟通</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.footerItem} activeOpacity={.5}>
+          <TouchableOpacity onPress={this.handleLock} style={styles.footerItem} activeOpacity={.5}>
             <View style={styles.itemButton}>
-              <Image source={require('../images/icons/lock.png')} style={styles.footerIcon} />
+              <Image source={lockIcons[Number(this.state.locked)]} style={styles.footerIcon} />
               <Text>锁定</Text>
             </View>
           </TouchableOpacity>

@@ -1,13 +1,25 @@
+import React, { Component } from 'react'
+import {
+  StyleSheet,
+  View,
+  Text
+} from 'react-navigation'
+
 import { StackNavigator } from 'react-navigation'
-import HomeScreen from './HomeScreen'
+import PutbookScreen from './PutbookScreen'
+
+// component
+import { JReact } from '../Components'
 
 const PutbookStackNavigator = StackNavigator(
   {
     PutbookHomeStack: {
-      screen: HomeScreen,
-      navigationOptions: {
-        headerTitle: '传书'
-      }
+      screen: PutbookScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerTitle: '传书',
+        headerLeft: () => { },
+        headerRight: <JReact.HeaderRight text="规则" target={{ type: null }} />
+      })
     }
   },
   {

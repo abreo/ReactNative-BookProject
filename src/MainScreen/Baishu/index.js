@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import {
   StyleSheet,
   View,
-  Text,
-  Button,
-  TouchableOpacity
+  Text
 } from 'react-navigation'
 import { StackNavigator } from 'react-navigation'
 
@@ -32,20 +30,20 @@ const BaishuStackNavigator = StackNavigator(
       navigationOptions: ({ navigation }) => ({
         headerTitle: navigation.state.params.msg,
         headerLeft: <JReact.HeaderBack {...navigation} target={{ type: 'goBack' }} />,
-        headerRight: () => { }
+        headerRight: <JReact.HeaderRight text="..." target={{type: null}}/>
       })
     }
   },
-  {
-    navigationOptions: {
-      headerTitleStyle: {
-        // 字体粗细
-        fontWeight: 'normal',
+{
+  navigationOptions: {
+    headerTitleStyle: {
+      // 字体粗细
+      fontWeight: 'normal',
         // 标题居中——安卓
         alignSelf: 'center'
-      }
     }
   }
+}
 )
 
 

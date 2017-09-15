@@ -68,6 +68,8 @@ const MainTab = TabNavigator(
     }
   },
   {
+    // 测试路由
+    // initialRouteName: 'MainPutbookTab',
     // tab定位于下方
     tabBarPosition: 'bottom',
     // 取消滑动切换

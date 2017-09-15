@@ -7,6 +7,9 @@ import {
   TouchableOpacity
 } from 'react-native'
 
+import Dimensions from 'Dimensions'
+const { width: WIDTH } = Dimensions.get('window')
+
 // 评分展示组件
 import RatingBar from './RatingBar'
 // 时间戳处理
@@ -102,7 +105,7 @@ const styles = StyleSheet.create({
   },
   infoWrap: {
     paddingLeft: 10,
-    paddingRight: 50
+    width: WIDTH - 70
   },
   infoTitle: {
     flexDirection: 'row',

@@ -11,6 +11,8 @@ class HeaderRight extends PureComponent {
   handleNavigate = () => {
     const { navigate, goBack, target } = this.props
     switch (target.type) {
+      case null:
+        break
       case 'navigate':
         navigate(target.value)
         break

@@ -41,7 +41,7 @@ class RatingBar extends PureComponent {
   render() {
     return (
       <View style={styles.container}>
-        <Text>{this._renderStar()}</Text>
+        <View style={{flexDirection: 'row'}}>{this._renderStar()}</View>
         <Text style={styles.text}>{(this.props.score / 10).toFixed(1)}</Text>
       </View>
     )
@@ -54,8 +54,8 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   icon: {
-    width: 50,
-    height: 50
+    width: 16,
+    height: 16
   },
   text: {
     marginLeft: 8
