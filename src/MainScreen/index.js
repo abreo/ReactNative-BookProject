@@ -61,15 +61,16 @@ const MainTab = TabNavigator(
     },
     MainPutbookTab: {
       screen: PutbookStackNavigator,
-      navigationOptions: {
+      navigationOptions: ({ navigation: { state } }) => ({
         tabBarLabel: '传书',
-        tabBarIcon: (e) => renderTabIcon(e, 'putbook')
-      }
+        tabBarIcon: (e) => renderTabIcon(e, 'putbook'),
+        tabBarVisible: state.index === 0
+      })
     }
   },
   {
     // 测试路由
-    // initialRouteName: 'MainPutbookTab',
+    initialRouteName: 'MainPutbookTab',
     // tab定位于下方
     tabBarPosition: 'bottom',
     // 取消滑动切换

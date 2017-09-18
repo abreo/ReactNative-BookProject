@@ -1,6 +1,6 @@
-import AddBook from './AddBook'
+import BookItem from './BookItem'
 
 
 export {
-  AddBook
+  BookItem
 }

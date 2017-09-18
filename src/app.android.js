@@ -12,6 +12,8 @@ import { StackNavigator, DrawerNavigator } from 'react-navigation'
 
 // 主色#4b6
 
+// 书本封面比例 18：25
+
 
 // 登陆注册 App入口页
 import LoginScreen from './LoginScreen/LoginScreen'
