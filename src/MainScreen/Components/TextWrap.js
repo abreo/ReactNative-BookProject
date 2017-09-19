@@ -7,10 +7,11 @@ import {
   Image
 } from 'react-native'
 import PropTypes from 'prop-types'
-
 import Dimensions from 'Dimensions'
 const { width: WIDTH } = Dimensions.get('window')
 
+// img
+const unfoldIcon = require('./images/unfold.png')
 
 
 class TextWrap extends Component {
@@ -55,14 +56,12 @@ class TextWrap extends Component {
               {content}
             </Text>
           </View>
-
-
         </View>
 
         {this.state.LineNum === 3 && <View style={styles.footerWrap}>
           <TouchableOpacity onPress={this.handleUnfold} style={styles.footerButton} activeOpacity={.5}>
             <Text style={[styles.textColor]}>展开全文</Text>
-            <Image style={styles.footerIcon} source={require('./images/icons/unfold.png')} />
+            <Image style={styles.footerIcon} source={unfoldIcon} />
           </TouchableOpacity>
         </View>}
       </View>

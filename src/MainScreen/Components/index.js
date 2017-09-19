@@ -1,9 +1,9 @@
 import * as JReact from '../../Components'
+import BookDetails from './BookDetails'
+import BookItem from './BookItem'
 
-
-// 设置导出
 export {
   JReact,
-  
-
+  BookDetails,
+  BookItem
 }

@@ -6,11 +6,8 @@ import {
   TouchableOpacity
 } from 'react-native'
 
-// 公共组件
-
-// 模块组件
-import { HomeList, HomeSearch } from '../Components/baishu'
-
+import HomeList from './PrivateC/HomeList'
+import HomeSearch from './PrivateC/HomeSearch'
 
 class HomeScreen extends Component {
   render() {
@@ -26,9 +23,7 @@ class HomeScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center'
+    flex: 1
   }
 })
 

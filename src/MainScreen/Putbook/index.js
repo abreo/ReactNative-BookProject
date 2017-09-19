@@ -8,6 +8,7 @@ import {
 import { StackNavigator } from 'react-navigation'
 import PutbookScreen from './PutbookScreen'
 import AddbookScreen from './AddbookScreen'
+import BookScreen from './BookScreen'
 
 // component
 import { JReact } from '../Components'
@@ -28,6 +29,14 @@ const PutbookStackNavigator = StackNavigator(
         headerTitle: '添加传书',
         headerLeft: <JReact.HeaderBack {...navigation} target={{ type: 'goBack' }} />,
         headerRight: () => { }
+      })
+    },
+    PutbookBookStack: {
+      screen: BookScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerTitle: '书本的名字',
+        headerLeft: <JReact.HeaderBack {...navigation} target={{ type: 'goBack' }} />,
+        headerRight: <JReact.HeaderRight text="推荐" target={{ type: null }} />
       })
     }
   },

@@ -3,27 +3,92 @@ import {
   StyleSheet,
   View,
   Text,
-  Button,
+  ScrollView,
   TouchableOpacity
 } from 'react-native'
+import { JReact, BookItem } from '../Components'
 
-class HomeScreen extends Component {
+// img
+const bookCover = require('./images/dev/book_cover.jpeg')
+// mock
+const mockData = [
+  {
+    bookCover,
+    status: {
+      text: '审核通过',
+      bgColor: 'rgba(0,255,88,.8)'
+    },
+    bookName: '从你的全世界路过',
+    authorName: '(中) 张佳怡'
+  },
+  {
+    bookCover,
+    status: {
+      text: '审核通过',
+      bgColor: 'rgba(255,255,88,.8)'
+    },
+    bookName: '测试短',
+    authorName: '(中) 徐小阿三'
+  },
+  {
+    bookCover,
+    status: {
+      text: '审核通过',
+      bgColor: 'rgba(0,88,88,.8)'
+    },
+    bookName: '单一过',
+    authorName: '(中) 张佳'
+  },
+  {
+    bookCover,
+    status: {
+      text: '审核通过',
+      bgColor: 'rgba(0,255,88,.8)'
+    },
+    bookName: '从你的阿斯顿打撒萨达阿斯顿',
+    authorName: '(中) 阿斯顿怡'
+  }
+]
+
+class PutbookScreen extends Component {
+  constructor() {
+    super()
+    this.state = {
+      bookList: mockData
+    }
+  }
+  renderAddBook = (type) => {
+    return this.state.bookList.map((item, index) => (
+      <BookItem key={index} type={type} {...item} {...this.props.navigation} />
+    ))
+  }
   render() {
     return (
-      <View style={styles.container}>
-        <Text>书架</Text>
-      </View>
+      <ScrollView>
+        <JReact.IntervalSpace text="锁定" />
+        <View style={styles.bookWrap}>
+          {this.renderAddBook(0)}
+        </View>
+        <JReact.IntervalSpace text="在读" />
+        <View style={styles.bookWrap}>
+          {this.renderAddBook(0)}
+        </View>
+        <JReact.IntervalSpace text="已读" />
+        <View style={styles.bookWrap}>
+          {this.renderAddBook(0)}
+        </View>
+      </ScrollView>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+  bookWrap: {
+    backgroundColor: '#fff',
+    flexDirection: 'row',
+    flexWrap: 'wrap'
   }
 })
 
 
-export default HomeScreen
+export default PutbookScreen

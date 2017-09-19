@@ -7,27 +7,33 @@ import {
   Image,
 } from 'react-native'
 import PropTypes from 'prop-types'
-
 import Dimensions from 'Dimensions'
 const { width: WIDTH } = Dimensions.get('window')
 
-const buttonIcon = require('./images/addbook.jpg')
+const addIcon = require('./images/addbook.jpg')
 
 class BookItem extends PureComponent {
   static propTypes = {
-    isButton: PropTypes.bool,
+    type: PropTypes.number,
     bookCover: PropTypes.node,
     status: PropTypes.object,
     bookName: PropTypes.string,
     authorName: PropTypes.string
   }
   handleBookNav = () => {
-    const { navigate } = this.props
-    navigate('PutbookAddbookStack')
+    const { navigate, type } = this.props
+    switch (type) {
+      case 1:
+        navigate('PutbookBookStack')
+        break
+      case 2:
+        navigate('PutbookAddbookStack')
+        break
+    }
   }
   render() {
     const {
-      isButton = false,
+      type = 0,
       bookCover,
       status = {},
       bookName,
@@ -37,14 +43,14 @@ class BookItem extends PureComponent {
       <View style={styles.itemWrap}>
         <TouchableOpacity activeOpacity={.5} onPress={this.handleBookNav}>
           <View style={styles.bookWrap}>
-            <Image source={bookCover || buttonIcon} style={styles.bookImage} />
+            <Image source={bookCover || addIcon} style={styles.bookImage} />
             <View style={[styles.bookStatus, { backgroundColor: status.bgColor }]}>
               <Text style={{ color: '#fff' }}>{status.text}</Text>
             </View>
           </View>
         </TouchableOpacity>
         {
-          isButton || (
+          Boolean(type) || (
             <View style={styles.bookInfo}>
               <Text style={styles.bookName} numberOfLines={2}>{bookName}</Text>
               <Text style={styles.bookAuthor}>{authorName}</Text>

@@ -9,14 +9,18 @@ import {
   Image,
   Alert
 } from 'react-native'
-
 import Dimensions from 'Dimensions'
-
-import { JReact } from '../index'
-
 const { width: WIDTH } = Dimensions.get('window')
+
+import { JReact } from '../../Components'
+
 // 初始渲染条数
 const ITEM_NUM = 5
+
+// img
+const bookCover = require('../images/dev/book_cover.jpeg')
+const userAvatar = require('../images/dev/avatar.jpg')
+const positionIcon = require('../images/position.png')
 
 // mock
 const mockData = [
@@ -24,9 +28,9 @@ const mockData = [
     id: 1,
     bookName: '来自未来的',
     bookAuthor: '作者',
-    bookCover: require('../../images/book_cover.jpeg'),
+    bookCover,
     userName: '阿猛',
-    userAvatar: require('../../images/avatar.jpg'),
+    userAvatar,
     grade: 100,
     position: 200
   },
@@ -34,9 +38,9 @@ const mockData = [
     id: 2,
     bookName: '海底两万里',
     bookAuthor: '作者',
-    bookCover: require('../../images/book_cover.jpeg'),
+    bookCover,
     userName: '列夫托尔斯泰大苏打',
-    userAvatar: require('../../images/avatar.jpg'),
+    userAvatar,
     grade: 93,
     position: 213
   },
@@ -44,9 +48,9 @@ const mockData = [
     id: 3,
     bookName: '第三本书',
     bookAuthor: '作者',
-    bookCover: require('../../images/book_cover.jpeg'),
+    bookCover,
     userName: '小时',
-    userAvatar: require('../../images/avatar.jpg'),
+    userAvatar,
     grade: 81,
     position: 321
   },
@@ -54,9 +58,9 @@ const mockData = [
     id: 4,
     bookName: '计算机与科学',
     bookAuthor: '作者',
-    bookCover: require('../../images/book_cover.jpeg'),
+    bookCover,
     userName: '小时',
-    userAvatar: require('../../images/avatar.jpg'),
+    userAvatar,
     grade: 10,
     position: 333
   },
@@ -64,9 +68,9 @@ const mockData = [
     id: 5,
     bookName: '算法与结构',
     bookAuthor: '作者',
-    bookCover: require('../../images/book_cover.jpeg'),
+    bookCover,
     userName: '小时',
-    userAvatar: require('../../images/avatar.jpg'),
+    userAvatar,
     grade: 22,
     position: 400
   },
@@ -74,9 +78,9 @@ const mockData = [
     id: 6,
     bookName: '无尽指数',
     bookAuthor: '作者',
-    bookCover: require('../../images/book_cover.jpeg'),
+    bookCover,
     userName: '小时',
-    userAvatar: require('../../images/avatar.jpg'),
+    userAvatar,
     grade: 65,
     position: 555
   }
@@ -93,7 +97,7 @@ class BaishuListItem extends PureComponent {
         <View style={{ flexDirection: 'row' }}>
           <TouchableOpacity onPress={this.onPressNav(this.props.bookName)} activeOpacity={0.8}>
             <View style={styles.itemWrap}>
-              <Image source={require('../../images/book_cover.jpeg')} style={styles.bookCover} />
+              <Image source={this.props.bookCover} style={styles.bookCover} />
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={this.onPressNav(this.props.bookName)} activeOpacity={0.8}>
@@ -107,7 +111,7 @@ class BaishuListItem extends PureComponent {
                   </View>
                 </View>
                 <View style={styles.bookPosition}>
-                  <Image source={require('../../images/icons/position.png')} style={{ width: 16, height: 16 }} />
+                  <Image source={positionIcon} style={{ width: 16, height: 16 }} />
                   <Text>{this.props.position}米</Text>
                 </View>
               </View>
@@ -117,7 +121,7 @@ class BaishuListItem extends PureComponent {
         <TouchableOpacity onPress={this.onPressNav(this.props.userName)} activeOpacity={0.8}>
           <View style={styles.itemWrap}>
             <View style={styles.userInfoWrap}>
-              <Image source={require('../../images/avatar.jpg')} style={styles.userAvatar} />
+              <Image source={this.props.userAvatar} style={styles.userAvatar} />
               <Text>{this.props.userName}</Text>
             </View>
           </View>

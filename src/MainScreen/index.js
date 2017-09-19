@@ -6,10 +6,10 @@ import {
 
 // 加载tab相应图标
 const tabIcons = {
-  baishu: [require('./images/icons/baishu.png'), require('./images/icons/baishu_select.png')],
-  chat: [require('./images/icons/chat.png'), require('./images/icons/chat_select.png')],
-  bookrack: [require('./images/icons/bookrack.png'), require('./images/icons/bookrack_select.png')],
-  putbook: [require('./images/icons/putbook.png'), require('./images/icons/putbook_select.png')]
+  baishu: [require('./images/baishu.png'), require('./images/baishu_select.png')],
+  chat: [require('./images/chat.png'), require('./images/chat_select.png')],
+  bookrack: [require('./images/bookrack.png'), require('./images/bookrack_select.png')],
+  putbook: [require('./images/putbook.png'), require('./images/putbook_select.png')]
 }
 
 const renderTabIcon = function (e, type) {

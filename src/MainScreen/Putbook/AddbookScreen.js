@@ -8,8 +8,10 @@ import {
   ScrollView,
   TouchableOpacity
 } from 'react-native'
-
 import { JReact } from '../Components'
+import PictureWrap from './PrivateC/PictureWrap'
+
+const rightIcon = require('./images/right.png')
 
 const baseInfoLabels = [
   { label: '书名' },
@@ -36,7 +38,7 @@ class AddbookScreen extends Component {
               : <TouchableOpacity style={{ flex: 1 }}>
                 <View style={styles.textInput}>
                   <Text>点击</Text>
-                  <Image source={require('../images/icons/right.png')} style={{ width: 20, height: 20 }} />
+                  <Image source={rightIcon} style={{ width: 20, height: 20 }} />
                 </View>
               </TouchableOpacity>
           }
@@ -51,18 +53,28 @@ class AddbookScreen extends Component {
         <View style={styles.container}>
           {this.renderInput(baseInfoLabels)()}
         </View>
+
         <JReact.IntervalSpace text="补充信息" />
+
         <View style={styles.container}>
           {this.renderInput(updateInfoLabels)()}
           <View style={styles.recommendLabel}>
             <Text>推荐语</Text>
           </View>
-          <TextInput style={styles.recommendInput} underlineColorAndroid="transparent"  multiline={true} numberOfLines={5/* 安卓特性 */} placeholder="编写推荐语"/>
+          <TextInput style={styles.recommendInput} underlineColorAndroid="transparent" multiline={true} numberOfLines={5/* 安卓特性 */} placeholder="编写推荐语" />
         </View>
+
         <JReact.IntervalSpace text="照片" />
-        <View style={styles.container}>
-          <Text>照片</Text>
+
+        <View style={[styles.container, { paddingLeft: 0 }]}>
+          <PictureWrap />
         </View>
+
+        <TouchableOpacity style={styles.buttonWrap} activeOpacity={.5}>
+          <Text style={styles.buttonText}>
+            提交
+          </Text>
+        </TouchableOpacity>
       </ScrollView>
     )
   }
@@ -100,6 +112,20 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     marginTop: -10,
     padding: 0,
+  },
+  buttonWrap: {
+    height: 40,
+    margin: 10,
+    marginTop: 30,
+    marginBottom: 30,
+    borderRadius: 6,
+    backgroundColor: '#4b6',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16
   }
 })
 

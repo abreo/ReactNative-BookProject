@@ -2,22 +2,18 @@ import React, { Component } from 'react'
 import {
   StyleSheet,
   View,
-  Text,
-  Image,
-  ImageBackground,
-  TouchableOpacity,
-  ScrollView
+  Text
 } from 'react-native'
 
 import { BookDetails } from '../Components'
-import BookBottomMenu from './PrivateC/BookBottomMenu'
+import BookBottonMenu from './PrivateC/BookBottomMenu'
 
 class BookScreen extends Component {
   render() {
     return (
       <View style={styles.container} >
         <BookDetails />
-        <BookBottomMenu />
+        <BookBottonMenu />
       </View>
     )
   }

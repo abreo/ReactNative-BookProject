@@ -8,10 +8,11 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native'
-
 import Dimensions from 'Dimensions'
-
 const { width: WIDTH } = Dimensions.get('window')
+
+// img
+const searchIcon = require('../images/search.png')
 
 class BaishuList extends Component {
   render() {
@@ -24,7 +25,7 @@ class BaishuList extends Component {
               style={styles.searchInput} />
           </View>
           <View>
-            <Image source={require('../../images/icons/search.png')} style={styles.searchIcon} />
+            <Image source={searchIcon} style={styles.searchIcon} />
           </View>
         </View>
       </View>

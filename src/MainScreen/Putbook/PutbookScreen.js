@@ -6,14 +6,15 @@ import {
   ScrollView,
   TouchableOpacity
 } from 'react-native'
+import { JReact, BookItem } from '../Components'
 
-import { JReact } from '../Components'
-import { BookItem } from '../Components/putbook'
+// img
+const bookCover = require('./images/dev/book_cover.jpeg')
 
 // mock
 const mockData = [
   {
-    bookCover: require('../images/book_cover.jpeg'),
+    bookCover,
     status: {
       text: '审核通过',
       bgColor: 'rgba(0,255,88,.8)'
@@ -22,7 +23,7 @@ const mockData = [
     authorName: '(中) 张佳怡'
   },
   {
-    bookCover: require('../images/book_cover.jpeg'),
+    bookCover,
     status: {
       text: '审核通过',
       bgColor: 'rgba(255,255,88,.8)'
@@ -31,7 +32,7 @@ const mockData = [
     authorName: '(中) 徐小阿三'
   },
   {
-    bookCover: require('../images/book_cover.jpeg'),
+    bookCover,
     status: {
       text: '审核通过',
       bgColor: 'rgba(0,88,88,.8)'
@@ -40,7 +41,7 @@ const mockData = [
     authorName: '(中) 张佳'
   },
   // {
-  //   bookCover: require('../images/book_cover.jpeg'),
+  //   bookCover,
   //   status: {
   //     text: '审核通过',
   //     bgColor: 'rgba(0,255,88,.8)'
@@ -57,9 +58,9 @@ class PutbookScreen extends Component {
       bookList: mockData
     }
   }
-  renderAddBook = () => {
+  renderAddBook = (type) => {
     return this.state.bookList.map((item, index) => (
-      <BookItem key={index} {...item} {...this.props.navigation} />
+      <BookItem key={index} type={type} {...item} {...this.props.navigation} />
     ))
   }
   render() {
@@ -67,12 +68,12 @@ class PutbookScreen extends Component {
       <ScrollView>
         <JReact.IntervalSpace text="添加传书" />
         <View style={styles.bookWrap}>
-          {this.renderAddBook()}
-          <BookItem isButton={true} {...this.props.navigation} />
+          {this.renderAddBook(0)}
+          <BookItem type={2} {...this.props.navigation} />
         </View>
         <JReact.IntervalSpace text="我的传书" />
         <View style={styles.bookWrap}>
-          {this.renderAddBook()}
+          {this.renderAddBook(1)}
         </View>
       </ScrollView>
     )
