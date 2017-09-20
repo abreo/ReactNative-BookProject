@@ -70,11 +70,11 @@ const MainTab = TabNavigator(
   },
   {
     // 测试路由
-    initialRouteName: 'MainPutbookTab',
+    initialRouteName: 'MainBaishuTab',
     // tab定位于下方
     tabBarPosition: 'bottom',
     // 取消滑动切换
-    swipeEnabled: false,
+    // swipeEnabled: false,
     // 安卓动画取消
     // animationEnabled: false,
     tabBarOptions: {

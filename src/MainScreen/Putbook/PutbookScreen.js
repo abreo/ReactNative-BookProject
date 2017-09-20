@@ -63,17 +63,20 @@ class PutbookScreen extends Component {
       <BookItem key={index} type={type} {...item} {...this.props.navigation} />
     ))
   }
+  _onRefresh = () => {
+    console.log('refresh...')
+  }
   render() {
     return (
       <ScrollView>
         <JReact.IntervalSpace text="添加传书" />
         <View style={styles.bookWrap}>
-          {this.renderAddBook(0)}
-          <BookItem type={2} {...this.props.navigation} />
+          {this.renderAddBook(1)}
+          <BookItem type={0} {...this.props.navigation} />
         </View>
         <JReact.IntervalSpace text="我的传书" />
-        <View style={styles.bookWrap}>
-          {this.renderAddBook(1)}
+        <View style={[styles.bookWrap, styles.bottom]}>
+          {this.renderAddBook(2)}
         </View>
       </ScrollView>
     )
@@ -85,6 +88,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flexDirection: 'row',
     flexWrap: 'wrap'
+  },
+  bottom: {
+    marginBottom: 10
   }
 })
 

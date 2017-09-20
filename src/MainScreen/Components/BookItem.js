@@ -22,18 +22,22 @@ class BookItem extends PureComponent {
   }
   handleBookNav = () => {
     const { navigate, type } = this.props
+    // type
+    // 0：添加书籍
+    // 1：未编号书籍
+    // 2：已编号书籍
     switch (type) {
-      case 1:
-        navigate('PutbookBookStack')
+      case 0:
+        navigate('PutbookAddbookStack')
         break
       case 2:
-        navigate('PutbookAddbookStack')
+        navigate('PutbookBookStack')
         break
     }
   }
   render() {
     const {
-      type = 0,
+      type,
       bookCover,
       status = {},
       bookName,
@@ -50,7 +54,11 @@ class BookItem extends PureComponent {
           </View>
         </TouchableOpacity>
         {
-          Boolean(type) || (
+          type === 2 &&
+          <Text style={{ fontSize: 12, color: '#999' }}>编号: 223321</Text>
+        }
+        {
+          Boolean(type) && (
             <View style={styles.bookInfo}>
               <Text style={styles.bookName} numberOfLines={2}>{bookName}</Text>
               <Text style={styles.bookAuthor}>{authorName}</Text>
@@ -91,7 +99,7 @@ const styles = StyleSheet.create({
   },
   bookInfo: {
     height: bookHeigth * 2 / 5,
-    marginTop: 6,
+    marginTop: 4,
     // flex: 1,
     justifyContent: 'space-between',
     // borderWidth: 1,

@@ -8,6 +8,7 @@
 
 #### 项目涉及技术栈：
 - 导航：[react-navigation](https://reactnavigation.org/)
+- App首屏加载[react-native-splash-screen](https://github.com/crazycodeboy/react-native-splash-screen)（目前只进行了安卓端配置）
 - UI: [ant-mobile](https://mobile.ant.design/index-cn) （只作为弹出层使用,9.13更正，由于性能原因，取消了ui的使用，已对弹出层进行原生封装）
 - 静态类型检测：[Flow](https://flow.org/)（已配置，出于效率考虑，暂不使用）
 - 不可变类型：[immutable](https://facebook.github.io/immutable-js/docs/#/)(暂未使用，后续跟进)

@@ -116,7 +116,7 @@ const App = StackNavigator(
   },
   {
     // 默认路由
-    initialRouteName: 'AppStack',
+    // initialRouteName: 'AppStack',
     // 入口页取消header
     headerMode: 'none'
   }

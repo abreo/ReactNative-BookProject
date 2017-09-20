@@ -3,12 +3,14 @@ import {
   StyleSheet,
   View,
   Text,
+  Image,
   ScrollView,
   TouchableOpacity
 } from 'react-native'
 import { JReact, BookItem } from '../Components'
 
 // img
+const rightIcon = require('./images/right.png')
 const bookCover = require('./images/dev/book_cover.jpeg')
 // mock
 const mockData = [
@@ -67,15 +69,26 @@ class PutbookScreen extends Component {
       <ScrollView>
         <JReact.IntervalSpace text="锁定" />
         <View style={styles.bookWrap}>
-          {this.renderAddBook(0)}
+          {this.renderAddBook(2)}
         </View>
         <JReact.IntervalSpace text="在读" />
         <View style={styles.bookWrap}>
-          {this.renderAddBook(0)}
+          {this.renderAddBook(2)}
         </View>
-        <JReact.IntervalSpace text="已读" />
-        <View style={styles.bookWrap}>
-          {this.renderAddBook(0)}
+        <View style={styles.readTitleWrap}>
+          <View style={styles.readTitleLeft}>
+            <Text style={{ color: '#333' }}>已读</Text>
+            <Text style={styles.readTitleInfo}>(18本) 位列第6368</Text>
+          </View>
+          <TouchableOpacity activeOpacity={.5}>
+            <View style={styles.readTitleRight}>
+              <Text style={{ color: '#999' }}>查看榜单</Text>
+              <Image source={rightIcon} style={styles.readTitleIcon} />
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View style={[styles.bookWrap, styles.bottomMargin]}>
+          {this.renderAddBook(2)}
         </View>
       </ScrollView>
     )
@@ -87,6 +100,31 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flexDirection: 'row',
     flexWrap: 'wrap'
+  },
+  readTitleWrap: {
+    padding: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  readTitleIcon: {
+    width: 16,
+    height: 16
+  },
+  readTitleInfo: {
+    paddingLeft: 10,
+    fontSize: 12,
+    color: '#999'
+  },
+  readTitleLeft: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  readTitleRight: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  bottomMargin: {
+    marginBottom: 10
   }
 })
 
