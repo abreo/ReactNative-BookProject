@@ -12,10 +12,11 @@ class HomeScreen extends Component {
     const { navigate } = this.props.navigation
     return (
       <View style={styles.container}>
-        <Text>沟通</Text>
-        <TouchableOpacity onPress={() => navigate('Tow')}>
-          <Text>跳转进入</Text>
-        </TouchableOpacity>
+        <View>
+          <Text>掰书小秘书</Text>
+          <Text>感谢使用掰书，分享存书，共享书香中国。</Text>
+        </View>
+        <View></View>
       </View>
     )
   }
@@ -23,9 +24,7 @@ class HomeScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    flex: 1
   }
 })
 
