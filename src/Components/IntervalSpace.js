@@ -14,7 +14,7 @@ class IntervalSpace extends PureComponent {
     text: PropTypes.string
   }
   render() {
-    const { text = '请添加text字段' } = this.props
+    const { text = '' } = this.props
     return (
       <View style={styles.container}>
         <Text style={styles.text}>{text}</Text>
