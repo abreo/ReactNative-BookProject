@@ -38,12 +38,15 @@ const MainTab = TabNavigator(
   {
     MainBaishuTab: {
       screen: BaishuStackNavigator,
-      navigationOptions: ({ navigation: { state } }) => ({
-        tabBarLabel: '掰书',
-        tabBarIcon: (e) => renderTabIcon(e, 'baishu'),
-        // 判断路由层级，子路由隐藏tab
-        tabBarVisible: state.index === 0
-      })
+      navigationOptions: ({ navigation }) => {
+        console.log(navigation)
+        return {
+          tabBarLabel: '掰书',
+          tabBarIcon: (e) => renderTabIcon(e, 'baishu'),
+          // 判断路由层级，子路由隐藏tab
+          tabBarVisible: navigation.state.index === 0
+        }
+      }
     },
     MainChatTab: {
       screen: ChatStackNavigator,
@@ -69,14 +72,15 @@ const MainTab = TabNavigator(
     }
   },
   {
+    lazy: true,
     // 测试路由
     initialRouteName: 'MainBaishuTab',
     // tab定位于下方
     tabBarPosition: 'bottom',
     // 取消滑动切换
-    // swipeEnabled: false,
+    swipeEnabled: false,
     // 安卓动画取消
-    // animationEnabled: false,
+    animationEnabled: false,
     tabBarOptions: {
       // 显示icon
       showIcon: true,

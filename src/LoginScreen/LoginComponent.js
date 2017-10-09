@@ -33,7 +33,7 @@ class LoginComponent extends Component {
               <Text style={{ fontSize: 10, color: '#999' }}>忘记密码</Text>
             </TouchableOpacity>
           </View>
-          <TouchableOpacity onPress={() => navigate('AppStack')} style={styles.buttonWrap} activeOpacity={.5}>
+          <TouchableOpacity onPress={() => navigate('MainDrawer')} style={styles.buttonWrap} activeOpacity={.5}>
             <Text style={styles.buttonText}>登陆</Text>
           </TouchableOpacity>
         </View>

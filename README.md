@@ -39,29 +39,26 @@ src
 </pre>
 
 ##### App导航结构：
+> react-nativation 务必使用"^1.0.0-beta.13"以上版本，修复增加了侧边目锁定
 
-> 该结构基于react-navigation构建，目前存在部分问题，最显著的问题是嵌套的子页面能够打开drawer，也就是欠缺锁死手势打开侧边栏相关配置。正在等待官方修复中，参考issus[#793]（https://github.com/react-community/react-navigation/pull/793）
-
-<pre>
-
-Stack                               // 起点
+Stack            
 │ 
-├── Stack                           // App入口
-│   ├── page                        // login/register && 引导页
-│   └── page...
-│ 
-├── Drawer                          // 侧边栏作为主导航（默认进入Tab）
+├── Drawer             
+│   │    
+│   ├── login                      
+│   │    ├── login             
+│   │    └── register
 │   │
 │   ├── Tab                         // 主页Tab（项目中已将Tab在侧边栏中隐藏）
 │   │    ├── header                 // 设置公用header(并不是严格层级)
 │   │    └── Navigation             // 导航
 │   │           │
-│   │           ├── Stack           // tab中包含的stack集合
+│   │           ├── Stack(主页)           // tab中包含的stack集合
 │   │           │   ├── page        // 详情页（默认情况下该页为登陆后显示主页）
 │   │           │   └── page...
-│   │           ├── Stack
-│   │           ├── Stack	  
-│   │           └── Stack
+│   │           ├── Stack(沟通)
+│   │           ├── Stack(书架)
+│   │           └── Stack()
 │   ├── Stack                       // 侧边栏第一项
 │   │    ├── page                   // 侧边栏详情页
 │   │    └── page...
@@ -76,5 +73,5 @@ Stack                               // 起点
 
 ***
 #### 目前问题
-没有做防抖设置（多次点击）
-侧边栏子页面响应
+
+* 没有做防抖设置（多次点击）

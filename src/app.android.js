@@ -42,16 +42,25 @@ const { width: WIDTH, height: HEIGHT } = Dimensions.get('window')
 // 主程序
 const AppMain = DrawerNavigator(
   {
+    LoginDrawer: {
+      screen: LoginScreen,
+      navigationOptions: {
+        drawerLockMode: 'locked-closed',
+        drawerLabel: () => { }
+      }
+    },
     MainDrawer: {
       screen: MainTabNavigator,
       navigationOptions: {
         // 阻止侧栏显示主屏
+        drawerLockMode: 'locked-closed',
         drawerLabel: () => { }
       }
     },
     BalanceDrawer: {
       screen: BalanceStackNavigator,
       navigationOptions: {
+        drawerLockMode: 'locked-closed',
         drawerLabel: '余额',
         drawerIcon: () => <Image source={require('./images/icons/balance.png')} style={itemStyles.icon} />
       }
@@ -59,6 +68,7 @@ const AppMain = DrawerNavigator(
     IntegralDrawer: {
       screen: IntegralStackNavigator,
       navigationOptions: {
+        drawerLockMode: 'locked-closed',
         drawerLabel: '积分',
         drawerIcon: () => <Image source={require('./images/icons/integral.png')} style={itemStyles.icon} />
       }
@@ -66,6 +76,7 @@ const AppMain = DrawerNavigator(
     FaqDrawer: {
       screen: FaqStackNavigator,
       navigationOptions: {
+        drawerLockMode: 'locked-closed',
         drawerLabel: '常见问题',
         drawerIcon: () => <Image source={require('./images/icons/faq.png')} style={itemStyles.icon} />
       }
@@ -73,16 +84,15 @@ const AppMain = DrawerNavigator(
     SetDrawer: {
       screen: SetStackNavigator,
       navigationOptions: {
+        drawerLockMode: 'locked-closed',
         drawerLabel: '设置',
         drawerIcon: () => <Image source={require('./images/icons/setting.png')} style={itemStyles.icon} />
       }
     }
   },
   {
-    // 锁定drawe，拒绝手势打开,修复中
-    // drawerLockMode: 'locked-closed',
     // 初始路由测试用
-    // initialRouteName: 'BalanceDrawer',
+    initialRouteName: 'MainDrawer',
     // drawer宽度设置
     drawerWidth: 3 * WIDTH / 5,
     // 自定义样式组件
@@ -104,24 +114,7 @@ const itemStyles = StyleSheet.create({
 })
 
 
-// 入口
-const App = StackNavigator(
-  {
-    loginStack: {
-      screen: LoginScreen
-    },
-    AppStack: {
-      screen: AppMain
-    }
-  },
-  {
-    // 默认路由
-    // initialRouteName: 'AppStack',
-    // 入口页取消header
-    headerMode: 'none'
-  }
-)
 
 
 
-export default App
+export default AppMain
