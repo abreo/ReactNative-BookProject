@@ -11,7 +11,7 @@ import Dimensions from 'Dimensions'
 const { width: WIDTH } = Dimensions.get('window')
 
 // img
-const unfoldIcon = require('./images/unfold.png')
+const unfoldIcon = require('../images/unfold.png')
 
 
 class TextWrap extends Component {

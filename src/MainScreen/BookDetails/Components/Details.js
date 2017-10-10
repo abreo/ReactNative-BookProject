@@ -11,13 +11,13 @@ import {
 import Dimensions from 'Dimensions'
 const { width: WIDTH } = Dimensions.get('window')
 
-import { JReact } from './index'
+import JReact from '../../jreact-pull'
 import TextWrap from './TextWrap'
 
 // img
-const avatar = require('./images/dev/avatar.jpg')
-const bookCover = require('./images/dev/book_cover.jpeg')
-const positionIcon = require('./images/position.png')
+const avatar = require('../images/dev/avatar.jpg')
+const bookCover = require('../images/dev/book_cover.jpeg')
+const positionIcon = require('../images/position.png')
 
 // 基本信息
 const baseUser = {
@@ -31,7 +31,7 @@ const baseContent = `一个巨大的互联网知识库，汇聚了上亿网民�
 const BLURNUM = 8
 
 
-class BookDetails extends Component {
+class Details extends Component {
   render() {
     return (
       <ScrollView>
@@ -169,4 +169,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default BookDetails
+export default Details

@@ -8,8 +8,9 @@ import {
   ScrollView,
   TouchableOpacity
 } from 'react-native'
-import { JReact } from '../Components'
-import PictureWrap from './PrivateC/PictureWrap'
+
+import JReact from '../jreact-pull'
+import PictureWrap from './Components/PictureWrap'
 
 const rightIcon = require('./images/right.png')
 

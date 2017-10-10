@@ -6,7 +6,9 @@ import {
   ScrollView,
   TouchableOpacity
 } from 'react-native'
-import { JReact, BookItem } from '../Components'
+
+import JReact from '../jreact-pull'
+import BookItem from './Components/BookItem'
 
 // img
 const bookCover = require('./images/dev/book_cover.jpeg')
@@ -42,7 +44,7 @@ const mockData = [
   }
 ]
 
-class PutbookScreen extends Component {
+class Putbook extends Component {
   constructor() {
     super()
     this.state = {
@@ -86,4 +88,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default PutbookScreen
+export default Putbook

@@ -9,15 +9,16 @@ import {
   ScrollView
 } from 'react-native'
 
-import { BookDetails } from '../Components'
-import BookBottomMenu from './PrivateC/BookBottomMenu'
+import Details from './Components/Details'
+import MenuBaishu from './Components/MenuBaishu'
+import MenuPutbook from './Components/MenuPutbook'
 
-class BookScreen extends Component {
+class BookDetails extends Component {
   render() {
     return (
       <View style={styles.container} >
-        <BookDetails />
-        <BookBottomMenu />
+        <Details />
+        <MenuBaishu />
       </View>
     )
   }
@@ -30,4 +31,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default BookScreen
+export default BookDetails
