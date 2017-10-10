@@ -41,6 +41,8 @@ src
 ##### App导航结构：
 > react-nativation 务必使用"^1.0.0-beta.13"以上版本，修复增加了侧边目锁定
 
+</pre>
+
 Stack            
 │ 
 ├── Drawer             
@@ -53,12 +55,12 @@ Stack
 │   │    ├── header                 // 设置公用header(并不是严格层级)
 │   │    └── Navigation             // 导航
 │   │           │
-│   │           ├── Stack(主页)           // tab中包含的stack集合
+│   │           ├── Stack(主页)     // tab中包含的stack集合
 │   │           │   ├── page        // 详情页（默认情况下该页为登陆后显示主页）
 │   │           │   └── page...
 │   │           ├── Stack(沟通)
 │   │           ├── Stack(书架)
-│   │           └── Stack()
+│   │           └── Stack(上传)
 │   ├── Stack                       // 侧边栏第一项
 │   │    ├── page                   // 侧边栏详情页
 │   │    └── page...
