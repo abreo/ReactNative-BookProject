@@ -39,13 +39,21 @@ import Dimensions from 'Dimensions'
 const { width: WIDTH, height: HEIGHT } = Dimensions.get('window')
 
 
+
+const itemStyles = StyleSheet.create({
+  icon: {
+    width: 18,
+    height: 18
+  }
+})
+
+
 // 主程序
 const AppMain = DrawerNavigator(
   {
     LoginDrawer: {
       screen: LoginScreen,
       navigationOptions: {
-        drawerLockMode: 'locked-closed',
         drawerLabel: () => { }
       }
     },
@@ -53,14 +61,12 @@ const AppMain = DrawerNavigator(
       screen: MainTabNavigator,
       navigationOptions: {
         // 阻止侧栏显示主屏
-        drawerLockMode: 'locked-closed',
         drawerLabel: () => { }
       }
     },
     BalanceDrawer: {
       screen: BalanceStackNavigator,
       navigationOptions: {
-        drawerLockMode: 'locked-closed',
         drawerLabel: '余额',
         drawerIcon: () => <Image source={require('./images/icons/balance.png')} style={itemStyles.icon} />
       }
@@ -68,7 +74,6 @@ const AppMain = DrawerNavigator(
     IntegralDrawer: {
       screen: IntegralStackNavigator,
       navigationOptions: {
-        drawerLockMode: 'locked-closed',
         drawerLabel: '积分',
         drawerIcon: () => <Image source={require('./images/icons/integral.png')} style={itemStyles.icon} />
       }
@@ -76,7 +81,6 @@ const AppMain = DrawerNavigator(
     FaqDrawer: {
       screen: FaqStackNavigator,
       navigationOptions: {
-        drawerLockMode: 'locked-closed',
         drawerLabel: '常见问题',
         drawerIcon: () => <Image source={require('./images/icons/faq.png')} style={itemStyles.icon} />
       }
@@ -84,7 +88,6 @@ const AppMain = DrawerNavigator(
     SetDrawer: {
       screen: SetStackNavigator,
       navigationOptions: {
-        drawerLockMode: 'locked-closed',
         drawerLabel: '设置',
         drawerIcon: () => <Image source={require('./images/icons/setting.png')} style={itemStyles.icon} />
       }
@@ -106,15 +109,9 @@ const AppMain = DrawerNavigator(
   }
 )
 
-const itemStyles = StyleSheet.create({
-  icon: {
-    width: 18,
-    height: 18
-  }
-})
+
+// 全局锁定
+const App = () => <AppMain screenProps={{ drawerLockMode: 'locked-closed' }} />
 
 
-
-
-
-export default AppMain
+export default App

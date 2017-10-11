@@ -5,6 +5,8 @@ import {
 } from 'react-native'
 
 import { StackNavigator } from 'react-navigation'
+import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator'
+import JReact from './jreact-pull'
 
 // tab
 import Tab from './Tab'
@@ -14,7 +16,7 @@ import BookDetails from './BookDetails/BookDetails'
 import BookEditor from './BookEditor/BookEditor'
 
 // 根据index设置title
-const setTitle = ({index}) => {
+const setTitle = ({ index }) => {
   let title = ''
   switch (index) {
     case 0: title = '掰书'
@@ -33,15 +35,17 @@ const MainStackNavigator = StackNavigator(
   {
     TabStack: {
       screen: Tab,
-      navigationOptions: ({ navigation: {state} }) => {
+      navigationOptions: ({ navigation }) => {
         return {
-          headerTitle: setTitle(state)
+          headerTitle: setTitle(navigation.state),
+          headerLeft: <JReact.HeaderUser />,
+          headerRight: <JReact.HeaderQR />
         }
       }
     },
     BookDetailsStack: {
       screen: BookDetails,
-      navigationOptions: ({navigation}) => {
+      navigationOptions: ({ navigation }) => {
         return {
           // 书名
           headerTitle: navigation.state.params.msg
@@ -50,7 +54,7 @@ const MainStackNavigator = StackNavigator(
     },
     BookEditorStack: {
       screen: BookEditor,
-      navigationOptios: ({navigation}) => {
+      navigationOptios: ({ navigation }) => {
         return {
           headerTitle: '添加传书'
         }
@@ -58,6 +62,11 @@ const MainStackNavigator = StackNavigator(
     }
   },
   {
+    headerMode: 'screen',
+    // 安卓定制，模拟ios行为
+    transitionConfig: () => ({
+      screenInterpolator: CardStackStyleInterpolator.forHorizontal,
+    }),
     navigationOptions: {
       headerTitleStyle: {
         // 字体粗细

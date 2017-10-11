@@ -41,7 +41,7 @@ src
 ##### App导航结构：
 > react-nativation 务必使用"^1.0.0-beta.13"以上版本，修复增加了侧边目锁定
 
-</pre>
+<pre>
 
 Stack            
 │ 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {
   StyleSheet,
   View,
@@ -16,14 +16,19 @@ const styles = StyleSheet.create({
   }
 })
 
-const HeaderUser = ({ navigate }) => (
-  <TouchableOpacity onPress={() => navigate('DrawerOpen')}>
-    <Image
-      source={require('./images/icons/user.png')}
-      style={styles.icon}
-    />
-  </TouchableOpacity>
-)
+class HeaderUser extends PureComponent {
+  render() {
+    console.log('执行了')
+    return (
+      <TouchableOpacity onPress={() => this.props.navigate('DrawerOpen')}>
+        <Image
+          source={require('./images/icons/user.png')}
+          style={styles.icon}
+        />
+      </TouchableOpacity>
+    )
+  }
+}
 
 
 export default HeaderUser
