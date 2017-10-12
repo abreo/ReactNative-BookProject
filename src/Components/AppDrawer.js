@@ -3,7 +3,8 @@ import {
   StyleSheet,
   View,
   Text,
-  Image
+  Image,
+  TouchableOpacity
 } from 'react-native'
 
 import { DrawerItems } from 'react-navigation'
@@ -12,25 +13,70 @@ import Dimensions from 'Dimensions'
 const { width: WIDTH, height: HEIGHT } = Dimensions.get('window')
 
 
-const CustomDrawerContentComponent = (props) => (
-  <View style={styles.container}>
-    <View style={styles.infoWrap}>
-      <Image source={require('../images/user_avatar.jpg')} style={styles.infoAvatar} />
-      <Text style={styles.infoUser}>徐玉佩</Text>
-      <Text style={styles.BookNum}>288</Text>
-      <View style={styles.infoBookSum}>
-        <Text style={{ fontSize: 10, color: '#aaa' }}>读过</Text>
-        <Text style={{ fontSize: 10, color: '#aaa' }}>本书</Text>
+const balanceIcon = require('./images/icons/balance.png')
+const integralIcon = require('./images/icons/integral.png')
+const faqIcon = require('./images/icons/faq.png')
+const settingIcon = require('./images/icons/setting.png')
+
+const menuData = [
+  {
+    label: '余额',
+    icon: balanceIcon,
+    route: 'BalanceDrawer'
+  },
+  {
+    label: '积分',
+    icon: integralIcon,
+    route: 'IntegralDrawer'
+  },
+  {
+    label: '常见问题',
+    icon: faqIcon,
+    route: 'FaqDrawer'
+  },
+  {
+    label: '设置',
+    icon: settingIcon,
+    route: 'SetDrawer'
+  }
+]
+
+
+const CustomDrawerContentComponent = ({ navigation }) => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.infoWrap}>
+        <Image source={require('../images/user_avatar.jpg')} style={styles.infoAvatar} />
+        <Text style={styles.infoUser}>徐玉佩</Text>
+        <Text style={styles.BookNum}>288</Text>
+        <View style={styles.infoBookSum}>
+          <Text style={{ fontSize: 10, color: '#aaa' }}>读过</Text>
+          <Text style={{ fontSize: 10, color: '#aaa' }}>本书</Text>
+        </View>
+        <View style={styles.infoRanking}>
+          <Text style={styles.infoRankingFont}>位列19048位</Text>
+          <Text style={styles.infoRankingFont}>|</Text>
+          <Text style={styles.infoRankingFont}>查看榜单</Text>
+        </View>
       </View>
-      <View style={styles.infoRanking}>
-        <Text style={styles.infoRankingFont}>位列19048位</Text>
-        <Text style={styles.infoRankingFont}>|</Text>
-        <Text style={styles.infoRankingFont}>查看榜单</Text>
+      {/* <DrawerItems {...props} /> */}
+      <View style={styles.menuWrap}>
+        {
+          menuData.map(item => {
+            return (
+              <TouchableOpacity key={item.label} style={styles.menuItemWrap} onPress={() => navigation.navigate(item.route)}>
+                <View style={styles.menuItem}>
+                  <Image source={item.icon} style={styles.menuIcon} />
+                  <Text>{item.label}</Text>
+                </View>
+              </TouchableOpacity>
+            )
+          })
+        }
       </View>
     </View>
-    <DrawerItems {...props} />
-  </View>
-)
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -79,6 +125,22 @@ const styles = StyleSheet.create({
   infoRankingFont: {
     fontSize: 10,
     color: '#aaa'
+  },
+  menuWrap: {
+    marginLeft: 28,
+    // borderWidth: 1,
+  },
+  menuItemWrap: {
+    marginBottom: 16
+  },
+  menuItem: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  menuIcon: {
+    width: 16,
+    height: 16,
+    marginRight: 8
   }
 })
 

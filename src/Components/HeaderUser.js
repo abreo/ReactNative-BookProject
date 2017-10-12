@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import {
   StyleSheet,
   View,
@@ -16,9 +16,11 @@ const styles = StyleSheet.create({
   }
 })
 
-class HeaderUser extends PureComponent {
+class HeaderUser extends Component {
+  shouldComponentUpdate() {
+    return false
+  }
   render() {
-    console.log('执行了')
     return (
       <TouchableOpacity onPress={() => this.props.navigate('DrawerOpen')}>
         <Image
@@ -29,6 +31,5 @@ class HeaderUser extends PureComponent {
     )
   }
 }
-
 
 export default HeaderUser

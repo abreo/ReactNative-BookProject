@@ -36,10 +36,11 @@ const MainStackNavigator = StackNavigator(
     TabStack: {
       screen: Tab,
       navigationOptions: ({ navigation }) => {
+        const { state, navigate } = navigation
         return {
-          headerTitle: setTitle(navigation.state),
-          headerLeft: <JReact.HeaderUser />,
-          headerRight: <JReact.HeaderQR />
+          headerTitle: setTitle(state),
+          headerLeft: state.index ? null : <JReact.HeaderUser navigate={navigate} />,
+          headerRight: state.index ? null : <JReact.HeaderQR />
         }
       }
     },
@@ -48,7 +49,9 @@ const MainStackNavigator = StackNavigator(
       navigationOptions: ({ navigation }) => {
         return {
           // 书名
-          headerTitle: navigation.state.params.msg
+          headerTitle: navigation.state.params.msg,
+          headerLeft: <JReact.HeaderBack {...navigation} target={{ type: 'goBack' }} />,
+          headerRight: () => { }
         }
       }
     },
@@ -76,8 +79,8 @@ const MainStackNavigator = StackNavigator(
       },
       headerStyle: {
         height: 48,
-        borderBottomWidth: .3,
-        borderBottomColor: '#ccc'
+        // borderBottomWidth: .3,
+        // borderBottomColor: '#ccc'
       }
     }
   }

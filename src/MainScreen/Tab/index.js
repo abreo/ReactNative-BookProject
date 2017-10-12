@@ -68,13 +68,13 @@ const Tab = TabNavigator(
   {
     lazy: true,
     // 测试路由
-    initialRouteName: 'MainBaishuTab',
+    initialRouteName: 'MainChatTab',
     // tab定位于下方
     tabBarPosition: 'bottom',
     // 取消滑动切换
     swipeEnabled: false,
     // 安卓动画取消
-    animationEnabled: false,
+    animationEnabled: true,
     tabBarOptions: {
       // 显示icon
       showIcon: true,

@@ -39,7 +39,7 @@ const mockData = [
     bookName: '海底两万里',
     bookAuthor: '作者',
     bookCover,
-    userName: '列夫托尔斯泰大苏打',
+    userName: '列夫托尔斯列夫托尔斯泰大苏打泰大苏打',
     userAvatar,
     grade: 93,
     position: 213
@@ -122,7 +122,7 @@ class BaishuListItem extends PureComponent {
           <View style={styles.itemWrap}>
             <View style={styles.userInfoWrap}>
               <Image source={this.props.userAvatar} style={styles.userAvatar} />
-              <Text>{this.props.userName}</Text>
+              <Text numberOfLines={2}>{this.props.userName}</Text>
             </View>
           </View>
         </TouchableOpacity>
