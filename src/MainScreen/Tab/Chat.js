@@ -52,21 +52,6 @@ messageList = [
 ]
 
 class Chat extends Component {
-  // renderMessage() {
-  //   const charItem = []
-  //   messageList.forEach((item, index) => {
-  //     charItem.push(
-  //       <Swipeout right={swipeoutBtns} key={`1-${index}`}>
-  //         <ChatItem {...item}>
-  //           <Text style={styles.time}>{item.time}</Text>
-  //         </ChatItem>
-  //       </Swipeout>
-  //     )
-  //     charItem.push(<Separator key={`2-${index}`} />)
-  //   })
-  //   charItem.pop()
-  //   return charItem
-  // }
   renderMessage() {
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     return (
@@ -191,7 +176,8 @@ const styles = StyleSheet.create({
   },
   menuWrap: {
     flexDirection: 'row',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
+    backgroundColor: '#fff'
   },
   menuItem: {
     width: 70,
